@@ -99,7 +99,9 @@ export function HeroSection({ currentSlide, onSlideChange }: HeroSectionProps) {
         ))}
       </div>
 
-      {/* User Menu */}
+
+      {/* 챗봇 아이콘 */}
+      {/* User Menu
       <div className="absolute right-8 bottom-8 flex flex-col gap-4 z-20">
         <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center cursor-pointer hover:bg-gray-100">
           <span className="text-sm">👤</span>
@@ -107,7 +109,7 @@ export function HeroSection({ currentSlide, onSlideChange }: HeroSectionProps) {
         <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center cursor-pointer hover:bg-gray-300">
           <span className="text-sm">TOP</span>
         </div>
-      </div>
+      </div> */}
     </section>
   )
 }

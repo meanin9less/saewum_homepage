@@ -57,16 +57,18 @@ export function Header() {
     <header className="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
       {/* Main Menu */}
       <div className="border-b">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="flex items-center justify-center h-28 gap-20">
-            <Link to="/" className="flex items-center">
+        <div className="w-full px-4">
+          <div className="flex items-center h-28 relative">
+            {/* Logo - Left */}
+            <Link to="/" className="flex items-center absolute left-4">
               <span className="text-5xl font-bold">
                 <span className="text-gray-800">Saeum</span>
                 <span className="text-blue-500">Soft</span>
               </span>
             </Link>
 
-            <nav className="flex gap-16">
+            {/* Menu - Center */}
+            <nav className="flex gap-16 absolute left-1/2 transform -translate-x-1/2">
               {mainMenus.map((menu) => (
                 <Link
                   key={menu.name}

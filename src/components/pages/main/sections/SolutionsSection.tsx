@@ -1,51 +1,101 @@
+import { useState } from "react"
+
 export function SolutionsSection() {
+  const [hoveredIndex, setHoveredIndex] = useState(0)
+
   const solutions = [
     {
       emoji: "💬",
       title: "anytalk",
       description: "기업 내 훌륭한\n메신저 솔루션",
+      bgImage: "/img/main/solutions/1.jpg",
     },
     {
       emoji: "📊",
       title: "OfficeON",
       description: "실시간 협업\n스마트 그룹웨어",
+      bgImage: "/img/main/solutions/2.jpg",
     },
     {
       emoji: "🏢",
       title: "아파트온",
       description: "주민과 아파트\n운영을 돕습니다",
+      bgImage: "/img/main/solutions/3.jpg",
     },
     {
       emoji: "📋",
       title: "조사 No.1",
       description: "공무원님들\n공공정보 솔루션",
+      bgImage: "/img/main/solutions/4.jpg",
+    },
+    {
+      emoji: "🚀",
+      title: "Innovation Hub",
+      description: "미래 기술 연구\n개발 플랫폼",
+      bgImage: "/img/main/solutions/5.jpg",
+    },
+    {
+      emoji: "🔐",
+      title: "SecureFlow",
+      description: "기업 보안\n관리 솔루션",
+      bgImage: "/img/main/solutions/6.jpg",
+    },
+    {
+      emoji: "❓",
+      title: "문의하기",
+      description: "더 알아보고\n싶으신가요?",
+      bgImage: "/img/main/solutions/7.jpg",
+      isContact: true,
     },
   ]
 
   return (
-    <section className="h-screen relative flex items-center justify-center bg-gray-900">
-      <div className="max-w-6xl mx-auto px-4 text-center">
+    <section className="h-screen relative flex flex-col bg-gray-900">
+      {/* <div className="flex-1 flex flex-col items-center justify-center px-4">
         <h2 className="text-4xl font-bold mb-4 text-white">솔루션</h2>
         <p className="text-gray-300 mb-12">
           새움소프트는 높은원칙은 존중하면서 경영하며 더 나은 내일을 위해 노력합니다.
         </p>
+      </div> */}
 
-        <div className="grid md:grid-cols-4 gap-6">
+      <div className="flex gap-0 flex-1 w-full">
           {solutions.map((solution, index) => (
             <div
               key={index}
-              className="p-8 bg-blue-900/80 rounded-lg text-white hover:transform hover:-translate-y-2 transition-transform duration-300 cursor-pointer"
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(0)}
+              className={`
+                relative text-white overflow-hidden
+                transition-all duration-500 ease-out
+                flex flex-col items-center justify-center p-8 h-full
+                ${hoveredIndex === index ? "flex-[5]" : "flex-1"}
+                ${solution.isContact ? "hover:brightness-110" : ""}
+              `}
+              style={{
+                backgroundImage: `url("${solution.bgImage}")`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
             >
-              <div className="w-16 h-16 mx-auto mb-4 bg-white/20 rounded-full flex items-center justify-center">
-                <span className="text-2xl">{solution.emoji}</span>
+              <div className="absolute inset-0 bg-black/50"></div>
+              <div className="relative z-10">
+                <div className="w-16 h-16 mb-4 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+                  <span className="text-2xl">{solution.emoji}</span>
+                </div>
+                <h3 className="text-xl font-bold mb-2 whitespace-nowrap">
+                  {solution.title}
+                </h3>
+                <p className="text-sm opacity-90 whitespace-pre-line">
+                  {solution.description}
+                </p>
+                {solution.isContact && (
+                  <button className="mt-4 px-6 py-2 bg-blue-600 hover:bg-blue-500 rounded-full transition-colors">
+                    문의 →
+                  </button>
+                )}
               </div>
-              <h3 className="text-xl font-bold mb-2">{solution.title}</h3>
-              <p className="text-sm opacity-90 whitespace-pre-line">
-                {solution.description}
-              </p>
             </div>
           ))}
-        </div>
       </div>
     </section>
   )
