@@ -6,56 +6,60 @@ export default function InnovationPage() {
       <PageBanner title="혁신의 시작" description="새움소프트는 늘 경험업은 축적업으로 더 나은 경영업을 위해 노력합니다" backgroundImage="/img/page_Banner_img/common_background_inno.png" />
 
       <div className="max-w-6xl mx-auto px-4 py-16">
-        <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-          <div>
-            <h2 className="text-3xl font-bold mb-6">나아가는 방향</h2>
-            <p className="text-lg text-gray-700 mb-4">
-              새움소프트의 기업인프라 제품들은 세계최고입니다. 새움소프트의 모든 솔루션은 해외 수출도 가능합니다.
-              온라인판 새프도 하여만 수업을 순수하기 매우합니다.
-            </p>
-            <p className="text-gray-600">
-              새움소프트는 은금업에서 업금업 연구원를 보급합니다 모든 기능과 서비스의 매체를 제시합니다. 새움소프트는
-              업게에서 드물게도 모든 기능과 모듈을 직접 만듭니다.
-            </p>
-          </div>
-          <div>
-            <img src="/business-people-city-view.jpg" alt="Innovation" className="rounded-lg shadow-lg" />
-          </div>
-        </div>
+        <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
 
-        <div className="bg-gray-50 p-12 rounded-lg">
-          <h3 className="text-2xl font-bold text-center mb-8">세계최고를 향한 경쟁에서</h3>
-          <h3 className="text-2xl font-bold text-center mb-12 text-blue-600">당당히 승리하기 위해 꾸준히 노력합니다</h3>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-white p-8 rounded-lg shadow">
-              <h4 className="text-xl font-bold mb-4">지속 가능한 솔루션 제공</h4>
-              <p className="text-gray-600">
-                새움소프트의 기업인프라 제품들은 세계최고입니다. 새움소프트의 모든 솔루션은 해외 수출도 가능합니다.
-                테스트까지 직접 관리하고 대응으로 순수하기 제공합니다. 환벡을 향한 평생과 기술상 도전은 모든 기능과
-                서비스의 매체를 쌓습니다.
-              </p>
+          <div className="flex flex-col items-center text-center p-6">
+            <div className="mb-6">
+              <svg className="w-24 h-24 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+              </svg>
             </div>
-
-            <div className="bg-white p-8 rounded-lg shadow">
-              <h4 className="text-xl font-bold mb-4">세계 최고의 제품군</h4>
-              <ul className="space-y-2 text-gray-600">
-                <li>• 조사1 공공정보 토탈 플랫폼(Josa1)</li>
-                <li>• 더알림 (The Alim - Alarm Social Service)</li>
-                <li>• 스텔라 메일서버 (Stella Mail Server)</li>
-                <li>• 오피스온 전자결재 (OfficeON ADMS)</li>
-                <li>• 오피스온 오프커뮤니티 (OfficeON Community)</li>
-                <li>• 워크플로우우플랫폼 (OWorkflow)</li>
-                <li>• 하이브리드 모바일포탈 (HybriC Portal - Hybrd+BriC)</li>
-                <li>• 푸시 메시지서버 (PushMsg.net)</li>
-                <li>• 컴파니톡 메신저 (CompanyTalk Messenger)</li>
-                <li>• 오피스온 전자결재 (OfficeON ADMS)</li>
-                <li>• 컨버전스 플넷 (Convergence)</li>
-                <li>• YEAS플랫폼 (Your Everything Auto-Save)</li>
-                <li>• 오렌지 검색엔진 (Orange Searching)</li>
-              </ul>
-            </div>
+            <h3 className="text-2xl font-bold text-gray-800 mb-4">회사의 작은 시작</h3>
+            <div className="w-16 h-1 bg-blue-600 mb-6" />
+            <p className="text-gray-600 leading-relaxed">
+              새음 소프트는 인앙의 회사 사무실에서 세계 최고의 기업 협업 프로그램을 만들겠다는 꿈을 가진 이들에 의해 시작되었습니다.
+            </p>
           </div>
+
+          <div className="flex flex-col items-center text-center p-6">
+            <div className="mb-6">
+              <svg className="w-24 h-24 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+              </svg>
+            </div>
+            <h3 className="text-2xl font-bold text-gray-800 mb-4">편안한 환경</h3>
+            <div className="w-16 h-1 bg-blue-600 mb-6" />
+            <p className="text-gray-600 leading-relaxed">
+              서울의 여유 없고, 좁은 하늘을 벗어나 파란 하늘과 풀소리 나는 여유로움 사용자의 편의성에 대한 깊이 있는 고찰과 최적의 기능드리는 확실한 클로도기 않습니다.
+            </p>
+          </div>
+
+          <div className="flex flex-col items-center text-center p-6">
+            <div className="mb-6">
+              <svg className="w-24 h-24 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+              </svg>
+            </div>
+            <h3 className="text-2xl font-bold text-gray-800 mb-4">비전의 자부심</h3>
+            <div className="w-16 h-1 bg-blue-600 mb-6" />
+            <p className="text-gray-600 leading-relaxed">
+              창인정신이 깃들어 있고 재능으로 모든 기능들에 자부심이 배어있습니다. 또한, 과거의 기술뿐 아니라 현재 개발되는 신기능과 기술도 새음소프트의 것 비전을 그대로 따르고 있습니다.
+            </p>
+          </div>
+
+          <div className="flex flex-col items-center text-center p-6">
+            <div className="mb-6">
+              <svg className="w-24 h-24 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M7 11.5V14m0-2.5v-6a1.5 1.5 0 113 0m-3 6a1.5 1.5 0 00-3 0v2a7.5 7.5 0 0015 0v-5a1.5 1.5 0 00-3 0m-6-3V11m0-5.5v-1a1.5 1.5 0 013 0v1m0 0V11m0-5.5a1.5 1.5 0 013 0v3m0 0V11" />
+              </svg>
+            </div>
+            <h3 className="text-2xl font-bold text-gray-800 mb-4">비전의 실천</h3>
+            <div className="w-16 h-1 bg-blue-600 mb-6" />
+            <p className="text-gray-600 leading-relaxed">
+              새음소프트의 직원들은 차음과 같은 마음으로 기업들이 가장 자주 사용하고, 가장 먼저 떠올릴 수 있는 제품을 제시하고 있습니다. 나아가, '평생 가지고 사용할 수 있는 서비스를 제공한다'라는 실질 비전을 실천하고 있습니다.
+            </p>
+          </div>
+
         </div>
       </div>
     </div>

@@ -50,11 +50,11 @@ export default function NewsPage() {
           {news.map((item, index) => (
             <div
               key={index}
-              className="bg-white border rounded-lg p-6 hover:shadow-md transition-shadow cursor-pointer flex items-center justify-between"
+              className="bg-white border-b border-gray-300 p-6 hover:shadow-md transition-shadow cursor-pointer flex items-center justify-between"
             >
               <div className="flex items-center gap-4">
                 <span
-                  className={`px-4 py-1 rounded-full text-sm font-bold ${
+                  className={`px-3 py-1 rounded-lg text-sm font-bold whitespace-nowrap min-w-[88px] text-center ${
                     item.type === "보도자료"
                       ? "bg-yellow-100 text-yellow-800"
                       : item.type === "새소식"

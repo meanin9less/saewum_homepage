@@ -12,15 +12,11 @@ export default function ContributionPage() {
         </div>
 
         <div className="space-y-16">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h3 className="text-2xl font-bold mb-4">지속 가능한 솔루션 제공</h3>
-              <p className="text-gray-600 leading-relaxed">
-                새움소프트의 기업인프라 제품들은 세계최고입니다. 새움소프트가 모든 생명체를 개발, 테스트까지 직접
-                관리하고, 업계 최고의 표준을 준수하기 때문입니다. 완벽을 향한 평생과 기술의 도전을 직접 만들어냅니다.
-              </p>
-            </div>
-            <img src="/team-collaboration.png" alt="Collaboration" className="rounded-lg shadow-lg" />
+          <div>
+            <h3 className="text-2xl font-bold mb-4">지속 가능한 솔루션 제공</h3>
+            <p className="text-gray-600 leading-relaxed mb-4">
+              새움소프트의 기업인프라 제품들은 세계최고입니다. 새움소프트가 모든 설계부터 개발, 테스트까지 직접 관리하고, 업계 최고의 표준을 준수하기 때문입니다. 완벽을 향한 열정과 기술적 도전은 모든 기능과 서비스의 미래를 제시합니다. 새움소프트는 업계에서 드물게도 모든 기능과 모듈을 직접 만듭니다.
+            </p>
           </div>
 
           <div className="bg-gray-50 p-12 rounded-lg">
@@ -45,6 +41,34 @@ export default function ContributionPage() {
               <li className="flex items-start">
                 <span className="text-blue-600 mr-2">•</span>
                 <span>오피스온 오픈커뮤니티 (OfficeON Community)</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-blue-600 mr-2">•</span>
+                <span>워크플로우플랫폼 (OWorkflow)</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-blue-600 mr-2">•</span>
+                <span>하이브릭 모바일포탈 (HybriC Portal - Hybrd+BriC)</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-blue-600 mr-2">•</span>
+                <span>푸시 메시지서버 (PushMsg.net)</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-blue-600 mr-2">•</span>
+                <span>컴퍼니톡 메신저 (CompanyTalk Messenger)</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-blue-600 mr-2">•</span>
+                <span>컨버전스 플랫폼 (Convergence)</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-blue-600 mr-2">•</span>
+                <span>YEAS플랫폼 (Your Everything Auto-Save)</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-blue-600 mr-2">•</span>
+                <span>오렌지 검색엔진 (Orange Searching)</span>
               </li>
             </ul>
           </div>

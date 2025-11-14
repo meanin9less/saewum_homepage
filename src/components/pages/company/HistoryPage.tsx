@@ -26,7 +26,7 @@ export default function HistoryPage() {
 
       <div className="max-w-5xl mx-auto px-4 py-16">
         {/* 탭 버튼 */}
-        <div className="flex gap-4 mb-12">
+        <div className="flex gap-0 justify-center mb-12">
           {tabs.map((tab) => (
             <TabButton
               key={tab.id}

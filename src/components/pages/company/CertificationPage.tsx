@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { PageBanner } from "../../common/PageBanner"
+import { TabButton } from "../../common/TabButton"
 
 export default function CertificationPage() {
   const [activeTab, setActiveTab] = useState<"인증현황" | "프로그램 등록현황">("인증현황")
@@ -107,23 +108,17 @@ export default function CertificationPage() {
       <PageBanner title="프로그램 및 인증" description="국제 표준을 만족하는 새움소프트의 다양한 인증과 프로그램" backgroundImage="/img/page_Banner_img/common_background.png" />
 
       <div className="max-w-6xl mx-auto px-4 py-12">
-        <div className="flex gap-0 mb-12 border-b">
-          <button
+        <div className="flex gap-0 mb-12">
+          <TabButton
+            label="인증현황"
+            isActive={activeTab === "인증현황"}
             onClick={() => setActiveTab("인증현황")}
-            className={`px-8 py-4 font-bold transition-colors ${
-              activeTab === "인증현황" ? "bg-blue-600 text-white" : "bg-white text-gray-600 hover:bg-gray-50"
-            }`}
-          >
-            인증현황
-          </button>
-          <button
+          />
+          <TabButton
+            label="프로그램 등록현황"
+            isActive={activeTab === "프로그램 등록현황"}
             onClick={() => setActiveTab("프로그램 등록현황")}
-            className={`px-8 py-4 font-bold transition-colors ${
-              activeTab === "프로그램 등록현황" ? "bg-blue-600 text-white" : "bg-white text-gray-600 hover:bg-gray-50"
-            }`}
-          >
-            프로그램 등록현황
-          </button>
+          />
         </div>
 
         {activeTab === "인증현황" ? (

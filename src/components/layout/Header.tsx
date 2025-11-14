@@ -22,8 +22,8 @@ const mainMenus = [
     path: "/innovation",
     subMenus: [
       { name: "혁신의 시작", path: "/innovation" },
-      { name: "ICL연구소 이야기", path: "/innovation/icl-story" },
       { name: "나아가는 방향", path: "/innovation/goal" },
+      { name: "ICL연구소 이야기", path: "/innovation/icl-story" },
       { name: "기술의 사회기여", path: "/innovation/contribution" },
     ],
   },

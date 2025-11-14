@@ -35,15 +35,15 @@ export function NewsSection() {
           <p className="text-gray-600">새움소프트의 최신 소식을 확인하세요</p>
         </div>
 
-        <div className="space-y-3 max-w-4xl mx-auto">
+        <div className="space-y-4 max-w-4xl mx-auto">
           {news.map((item, index) => (
             <div
               key={index}
-              className="bg-gray-50 border rounded-lg p-4 hover:shadow-md transition-shadow cursor-pointer flex items-center justify-between"
+              className="bg-white border-b border-gray-300 p-4 hover:shadow-md transition-shadow cursor-pointer flex items-center justify-between"
             >
               <div className="flex items-center gap-4">
                 <span
-                  className={`px-3 py-1 rounded-full text-sm font-bold whitespace-nowrap ${
+                  className={`px-3 py-1 rounded-lg text-sm font-bold whitespace-nowrap min-w-[88px] text-center ${
                     item.type === "보도자료"
                       ? "bg-yellow-100 text-yellow-800"
                       : "bg-blue-100 text-blue-800"
