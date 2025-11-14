@@ -1,0 +1,18 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Launch Chrome against localhost",
+            "url": "http://localhost:5173",
+            "webRoot": "${workspaceFolder}",
+            "sourceMaps": true,
+            "sourceMapPathOverride": {
+                "vite:///src/*": "${webRoot}/src/*",
+                "webpack:///./src/*": "${webRoot}/src/*"
+            },
+            "skipFiles": ["<node_internals>/**"]
+        }
+    ]
+}
