@@ -1,14 +1,47 @@
+import { useRef, useEffect, useState } from "react"
+
 export function AboutSection() {
+  const contentRef = useRef<HTMLDivElement>(null)
+  const sectionRef = useRef<HTMLDivElement>(null)
+  const [isInView, setIsInView] = useState(false)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting)
+      },
+      { threshold: 0.3 }
+    )
+
+    if (contentRef.current) {
+      observer.observe(contentRef.current)
+    }
+
+    return () => observer.disconnect()
+  }, [])
+
   return (
     <section
+      ref={sectionRef}
       className="h-screen relative flex items-center justify-center bg-cover bg-center"
-      style={{ backgroundImage: 'url(/img/main/aboutSection/section2_bg.jpg)' }}
+      style={{
+        backgroundImage: 'url(/img/main/aboutSection/section2_bg.jpg)',
+        opacity: isInView ? 1 : 0.3,
+        transition: "opacity 800ms cubic-bezier(0.34, 1.56, 0.64, 1)",
+      }}
     >
       <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
         <div>
-          
+
         </div>
-        <div>
+        <div
+          ref={contentRef}
+          style={{
+            opacity: isInView ? 1 : 0,
+            transform: isInView ? "translateX(0)" : "translateX(50px)",
+            transition: "all 800ms cubic-bezier(0.34, 1.56, 0.64, 1)",
+          }}
+        >
           <img src="/img/main/aboutSection/saeum_since2015.png" alt="Saeum Soft" className="mb-6 h-20" />
           <p className="text-lg mb-6">
             변화하신을 바탕으로 새움소프트의
