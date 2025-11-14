@@ -2,6 +2,7 @@ interface PageBannerProps {
   title: string
   description: string
   backgroundImage?: string
+  contentImage?: string
 }
 
 const bannerImages: Record<string, string> = {
@@ -26,6 +27,7 @@ export function PageBanner({
   title,
   description,
   backgroundImage,
+  contentImage,
 }: PageBannerProps) {
   // backgroundImage로 직접 이미지가 전달되면 사용, 아니면 빈 배경
   const bgImage = backgroundImage || ""
@@ -45,9 +47,25 @@ export function PageBanner({
       {/* 어두운 오버레이 */}
       <div className="absolute inset-0 bg-black/40" />
 
-      <div className="relative z-10 text-center text-white">
-        <h1 className="text-4xl font-bold mb-2">{title}</h1>
-        <p className="text-lg">{description}</p>
+      <div className="relative z-10 flex items-center justify-center gap-8 w-full px-4">
+        {/* 텍스트 컨텐츠 - contentImage가 없을 때만 표시 */}
+        {!contentImage && (
+          <div className="text-center text-white">
+            <h1 className="text-4xl font-bold mb-2">{title}</h1>
+            <p className="text-lg">{description}</p>
+          </div>
+        )}
+
+        {/* 이미지 컨텐츠 */}
+        {contentImage && (
+          <div className="flex-shrink-0">
+            <img
+              src={contentImage}
+              alt={title}
+              className="h-48 w-48 object-contain rounded-lg shadow-lg"
+            />
+          </div>
+        )}
       </div>
     </div>
   )

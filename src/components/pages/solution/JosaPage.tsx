@@ -3,7 +3,7 @@ import { PageBanner } from "../../common/PageBanner"
 export default function JosaPage() {
   return (
     <div className="pt-48 min-h-screen bg-gray-50">
-      <PageBanner title="조사 No.1" description="공공성도 토탈플랫폼" gradientFrom="from-orange-600" gradientTo="to-red-600" backgroundImage="/img/page_Banner_img/common_background_solution.png" />
+      <PageBanner title="조사 No.1" description="공공성도 토탈플랫폼" backgroundImage="/img/page_Banner_img/common_background_solution.png" />
 
       <div className="max-w-6xl mx-auto px-4 py-16">
         <div className="text-center mb-16">

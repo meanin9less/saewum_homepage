@@ -6,10 +6,24 @@ export default function OfficeONPage() {
       <PageBanner
         title="OfficeON"
         description="언제 어디서나 협업을 통한 업무 생산성을 향상시킬 수 있는 구축형 그룹웨어입니다."
-        gradientFrom="from-blue-600"
-        gradientTo="to-indigo-700"
         backgroundImage="/img/page_Banner_img/common_background_solution.png"
+        contentImage="/img/solution/officeonLogo.png"
       />
+
+      <div className="bg-blue-50 py-12 border-b border-blue-200">
+        <div className="max-w-6xl mx-auto px-4 text-center">
+          <p className="text-lg text-gray-700 mb-6">
+            언제 어디서나 협업을 통한 업무 생산성을 향상시킬수 있는 구축형 그룹웨어입니다.
+          </p>
+          <button className="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-semibold">
+            자세히 알아보기 →
+          </button>
+        </div>
+      </div>
+
+      <div className="py-12 flex items-center justify-center">
+        <img src="/img/solution/officeonLogoColor.png" alt="officeon" className="h-48 w-48 object-contain" />
+      </div>
 
       <div className="max-w-6xl mx-auto px-4 py-16">
         <div className="text-center mb-16">

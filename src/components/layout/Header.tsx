@@ -58,10 +58,10 @@ export function Header() {
       {/* Main Menu */}
       <div className="border-b">
         <div className="w-full px-4">
-          <div className="flex items-center h-28 relative">
+          <div className="flex items-center h-20 relative">
             {/* Logo - Left */}
-            <Link to="/" className="flex items-center absolute left-4">
-              <span className="text-5xl font-bold">
+            <Link to="/" className="flex items-center absolute left-4 h-full">
+              <span className="text-5xl font-bold leading-none">
                 <span className="text-gray-800">Saeum</span>
                 <span className="text-blue-500">Soft</span>
               </span>
@@ -94,13 +94,13 @@ export function Header() {
           onMouseLeave={() => setHoveredMenu(null)}
         >
           <div className="max-w-7xl mx-auto px-4">
-            <div className="flex gap-8 h-20 items-center justify-center">
+            <div className="flex gap-8 h-16 items-center justify-center">
               {(hoveredMenu ? mainMenus.find((m) => m.name === hoveredMenu)?.subMenus : activeMainMenu?.subMenus)?.map(
                 (subMenu, index) => (
                   <Link
                     key={index}
                     to={subMenu.path}
-                    className="text-lg text-gray-600 hover:text-blue-600 transition-colors"
+                    className="text-lg font-semibold text-gray-600 hover:text-blue-600 transition-colors"
                   >
                     {subMenu.name}
                   </Link>
