@@ -32,24 +32,24 @@ export function ValuesSection() {
   ]
 
   return (
-    <section className="h-screen relative flex items-center justify-center bg-white">
-      <div className="max-w-6xl mx-auto px-4 text-center">
-        <h2 className="text-4xl font-bold mb-4">핵심 가치</h2>
-        <p className="text-gray-600 mb-12">
+    <section className="min-h-screen relative flex items-center justify-center bg-white py-16 md:py-20">
+      <div className="max-w-6xl mx-auto px-3 md:px-4 text-center w-full">
+        <h2 className="text-3xl md:text-4xl font-bold mb-4">핵심 가치</h2>
+        <p className="text-gray-600 mb-8 md:mb-12 text-sm md:text-base">
           새움소프트는 높은원칙은 존중하면서 경영하며 더 나은 내일을 위해 노력합니다.
         </p>
 
-        <div className="flex justify-center items-center relative group flex-wrap gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
           {values.map((value, index) => (
             <GlassCard key={index} label="" r={index * 15 - 15}>
-              <div className="flex flex-col items-center justify-center h-full px-4">
-                <h3 className="text-sm font-bold text-black mb-3 whitespace-pre-line">
+              <div className="flex flex-col items-center justify-center h-full px-4 py-6">
+                <h3 className="text-sm md:text-base font-bold text-black mb-3 whitespace-pre-line">
                   {value.title}
                 </h3>
                 <div className="mb-3">
                   {value.icon}
                 </div>
-                <p className="text-xs text-black leading-relaxed">
+                <p className="text-xs md:text-sm text-black leading-relaxed">
                   {value.description}
                 </p>
               </div>

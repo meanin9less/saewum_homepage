@@ -16,7 +16,7 @@ export default function HomePage() {
   }, [])
 
   return (
-    <div className="-mt-20">
+    <div className="-mt-16 md:-mt-20">
       <HeroSection currentSlide={currentSlide} onSlideChange={setCurrentSlide} />
       <AboutSection />
       <ValuesSection />

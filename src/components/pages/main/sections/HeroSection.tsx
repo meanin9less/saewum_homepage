@@ -58,13 +58,13 @@ export function HeroSection({ currentSlide, onSlideChange }: HeroSectionProps) {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-white px-8 flex items-center justify-between h-full max-w-9xl mx-auto w-full pt-32">
+      <div className="relative z-10 text-white px-3 md:px-8 flex flex-col md:flex-row items-center justify-between h-full max-w-9xl mx-auto w-full pt-16 md:pt-24 lg:pt-32">
         {/* Left Section - Heading */}
-        <div className="flex-1">
+        <div className="flex-1 mb-8 md:mb-0">
           <div className="flex flex-col justify-center items-center h-full">
             <div>
             {heroSlides[currentSlide].heading.map((text, index) => (
-              <h1 key={index} className={`text-8xl font-bold leading-tight ${index > 0 ? "ml-24" : "mb-0"}`}>
+              <h1 key={index} className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight ${index > 0 ? "ml-4 sm:ml-8 md:ml-12 lg:ml-24" : "mb-0"}`}>
                 <span className="text-cyan-400">{text.charAt(0)}</span>
                 {text.slice(1)}
               </h1>
@@ -74,19 +74,19 @@ export function HeroSection({ currentSlide, onSlideChange }: HeroSectionProps) {
         </div>
 
         {/* Right Section - Description */}
-        <div className="flex-1 pl-4">
-          <h2 className="text-5xl font-black mb-8">{heroSlides[currentSlide].title}</h2>
-          <p className="text-3xl leading-relaxed whitespace-pre-line">{heroSlides[currentSlide].description}</p>
+        <div className="flex-1 pl-0 md:pl-4 text-center md:text-left">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-4 md:mb-6 lg:mb-8">{heroSlides[currentSlide].title}</h2>
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl leading-relaxed whitespace-pre-line">{heroSlides[currentSlide].description}</p>
         </div>
       </div>
 
       {/* Slide Indicators */}
-      <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 z-20 flex gap-3">
+      <div className="absolute bottom-8 md:bottom-12 lg:bottom-16 left-1/2 transform -translate-x-1/2 z-20 flex gap-2 md:gap-3">
         {heroSlides.map((_, index) => (
           <button
             key={index}
             onClick={() => onSlideChange(index)}
-            className={`w-3 h-3 rounded-full transition-all ${
+            className={`w-2.5 h-2.5 md:w-3 md:h-3 rounded-full transition-all ${
               currentSlide === index ? "bg-white scale-125" : "bg-white/50"
             }`}
           />

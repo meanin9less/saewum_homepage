@@ -20,10 +20,10 @@ import { Footer } from "./components/layout/Footer"
 
 function App() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col w-full overflow-x-hidden">
       {/* 헤더 */}
       <Header />
-      <main className="flex-1">
+      <main className="flex-1 w-full overflow-x-hidden">
         <Routes>
           <Route path="/" element={<HomePage />} />
           {/* 회사소개 */}

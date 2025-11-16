@@ -123,12 +123,33 @@
     padding: 0;
     box-sizing: border-box;
   }
+
+  html {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
   body {
     @apply bg-background text-foreground;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    padding-top: 5rem; /* 80px - 헤더 높이 */
+    padding-top: 4rem; /* mobile: 64px */
+    overflow-x: hidden; /* 가로 스크롤 방지 */
+    width: 100%;
+    max-width: 100vw;
+  }
+
+  #root {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+  }
+
+  @media (min-width: 768px) {
+    body {
+      padding-top: 5rem; /* desktop: 80px */
+    }
   }
 }
 
@@ -142,4 +163,16 @@
 div[style*="border: 1px solid rgb(118, 129, 168)"] {
   border: none !important;
   background: transparent !important;
+}
+
+/* 모바일 전체 화면 사용 - 컨테이너 패딩 최소화 */
+@layer utilities {
+  .container-padding {
+    @apply px-3 sm:px-4 md:px-6 lg:px-8;
+  }
+
+  .container-responsive {
+    @apply w-full mx-auto;
+    @apply px-3 sm:px-4 md:px-6 lg:px-8;
+  }
 }

@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { useLocation, Link } from "react-router-dom"
+import { Menu, X } from "lucide-react"
 
 const mainMenus = [
   {
@@ -41,6 +42,7 @@ const mainMenus = [
 
 export function Header() {
   const [hoveredMenu, setHoveredMenu] = useState<string | null>(null)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const location = useLocation()
 
   const getActiveMainMenu = () => {
@@ -56,18 +58,18 @@ export function Header() {
     <header className="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
       {/* Main Menu */}
       <div className="border-b">
-        <div className="w-full px-4">
-          <div className="flex items-center h-20 relative">
-            {/* Logo - Left */}
-            <Link to="/" className="flex items-center absolute left-4 h-full">
-              <span className="text-5xl font-bold leading-none">
+        <div className="w-full px-3 md:px-4">
+          <div className="flex items-center justify-between h-16 md:h-20">
+            {/* Logo */}
+            <Link to="/" className="flex items-center z-10 flex-shrink-0">
+              <span className="text-2xl sm:text-3xl md:text-5xl font-bold leading-none whitespace-nowrap">
                 <span className="text-gray-800">Saeum</span>
                 <span className="text-blue-500">Soft</span>
               </span>
             </Link>
 
-            {/* Menu - Center */}
-            <nav className="flex gap-16 absolute left-1/2 transform -translate-x-1/2 items-center h-full">
+            {/* Desktop Menu - Hidden on mobile */}
+            <nav className="hidden md:flex gap-8 lg:gap-12 xl:gap-16 items-center h-full absolute left-1/2 transform -translate-x-1/2">
               {mainMenus.map((menu) => (
                 <div
                   key={menu.name}
@@ -76,7 +78,7 @@ export function Header() {
                 >
                   <Link
                     to={menu.path}
-                    className={`text-2xl font-black transition-colors hover:text-blue-600 ${
+                    className={`text-xl lg:text-2xl font-black transition-colors hover:text-blue-600 ${
                       location.pathname.startsWith(menu.path) ? "text-blue-600" : "text-gray-700"
                     }`}
                   >
@@ -85,28 +87,72 @@ export function Header() {
                 </div>
               ))}
             </nav>
+
+            {/* Mobile Menu Button */}
+            <button
+              className="md:hidden z-10 p-2"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
           </div>
         </div>
       </div>
 
-      {/* Sub Menu */}
+      {/* Mobile Menu */}
+      {mobileMenuOpen && (
+        <div className="md:hidden bg-white border-b">
+          <nav className="px-3 md:px-4 py-4">
+            {mainMenus.map((menu) => (
+              <div key={menu.name} className="mb-4">
+                <Link
+                  to={menu.path}
+                  className={`block text-xl font-bold py-2 ${
+                    location.pathname.startsWith(menu.path) ? "text-blue-600" : "text-gray-700"
+                  }`}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {menu.name}
+                </Link>
+                {menu.subMenus.length > 0 && (
+                  <div className="ml-4 mt-2 space-y-2">
+                    {menu.subMenus.map((subMenu, index) => (
+                      <Link
+                        key={index}
+                        to={subMenu.path}
+                        className="block text-base font-medium text-gray-600 py-1 hover:text-blue-600"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        {subMenu.name}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </nav>
+        </div>
+      )}
+
+      {/* Desktop Sub Menu - Hidden on mobile */}
       {showSubMenu && (
         <div
-          className="bg-gray-50 border-b"
+          className="hidden md:block bg-gray-50 border-b"
           onMouseEnter={() => {
             const currentMenu = hoveredMenu || activeMainMenu?.name
             if (currentMenu) setHoveredMenu(currentMenu)
           }}
           onMouseLeave={() => setHoveredMenu(null)}
         >
-          <div className="max-w-7xl mx-auto px-4">
-            <div className="flex gap-8 h-16 items-center justify-center">
+          <div className="max-w-7xl mx-auto px-2 sm:px-4">
+            <div className="flex gap-4 md:gap-6 lg:gap-8 h-14 md:h-16 items-center justify-center flex-wrap">
               {(hoveredMenu ? mainMenus.find((m) => m.name === hoveredMenu)?.subMenus : activeMainMenu?.subMenus)?.map(
                 (subMenu, index) => (
                   <Link
                     key={index}
                     to={subMenu.path}
-                    className="text-lg font-semibold text-gray-600 hover:text-blue-600 transition-colors"
+                    className="text-base md:text-lg font-semibold text-gray-600 hover:text-blue-600 transition-colors"
                   >
                     {subMenu.name}
                   </Link>
