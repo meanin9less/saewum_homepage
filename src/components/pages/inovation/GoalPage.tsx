@@ -2,8 +2,7 @@ import { PageBanner } from "../../common/PageBanner"
 
 export default function GoalPage() {
   return (
-    <div className="pt-48">
-
+    <div>
       <PageBanner title="나아가는 방향" description="새움소프트는 늘 경험업은 축적업으로 더 나은 경영업을 위해 노력합니다" backgroundImage="/img/page_Banner_img/common_background_inno.png" />
       <section className="text-center mb-16 mt-16 max-w-6xl mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-blue-700 mb-6">
@@ -33,9 +32,6 @@ export default function GoalPage() {
         <div className="max-w-6xl mx-auto px-4 py-12">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
-              <img src="/img/innovation/goal_2_1.jpg" alt="기술력" className="w-full h-64 object-cover rounded-lg shadow-lg" />
-            </div>
-            <div>
               <h3 className="text-2xl font-bold mb-4">사용자들의 편의성을 고려한 최고의 기술력</h3>
               <div className="w-16 h-1 bg-blue-600 mb-6" />
               <p className="text-gray-600 leading-relaxed mb-4">
@@ -44,6 +40,9 @@ export default function GoalPage() {
               <p className="text-gray-600 leading-relaxed">
                 새음소프트는 이 모든 것들을 소중하고 있습니다. 추가로 모든 것들은 이러한 것은 새음소프트가 만드는 모든 서비스 모듈들은 전체 대스트가 대행됩니다.
               </p>
+            </div>
+            <div>
+              <img src="/img/innovation/goal_2_1.jpg" alt="기술력" className="w-full h-64 object-cover rounded-lg shadow-lg" />
             </div>
           </div>
         </div>

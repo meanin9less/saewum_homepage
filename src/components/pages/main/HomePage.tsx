@@ -1,5 +1,3 @@
-"use client"
-
 import { useState, useEffect } from "react"
 import { HeroSection } from "./sections/HeroSection"
 import { AboutSection } from "./sections/AboutSection"
@@ -18,12 +16,12 @@ export default function HomePage() {
   }, [])
 
   return (
-    <>
+    <div className="-mt-20">
       <HeroSection currentSlide={currentSlide} onSlideChange={setCurrentSlide} />
       <AboutSection />
       <ValuesSection />
       <SolutionsSection />
       <NewsSection />
-    </>
+    </div>
   )
 }

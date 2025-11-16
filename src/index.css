@@ -128,5 +128,18 @@
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    padding-top: 5rem; /* 80px - 헤더 높이 */
   }
+}
+
+/* Kakao Map InfoWindow 외곽 border 제거 */
+.kakao-map-infowindow {
+  border: none !important;
+  background: transparent !important;
+}
+
+/* react-kakao-maps-sdk에서 생성되는 인포윈도우 스타일 오버라이드 */
+div[style*="border: 1px solid rgb(118, 129, 168)"] {
+  border: none !important;
+  background: transparent !important;
 }

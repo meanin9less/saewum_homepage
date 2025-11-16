@@ -1,31 +1,7 @@
+import { newsData } from "../../../../data/company/newsData"
+
 export function NewsSection() {
-  const news = [
-    {
-      type: "새소식",
-      title: "새움소프트의 최신 기술 발표",
-      date: "2024-11-11",
-    },
-    {
-      type: "보도자료",
-      title: "클라우드 기반 협업 솔루션 출시",
-      date: "2024-09-21",
-    },
-    {
-      type: "새소식",
-      title: "해외 파트너십 체결 소식",
-      date: "2024-06-11",
-    },
-    {
-      type: "보도자료",
-      title: "차세대 엔터프라이즈 솔루션 개발 완료",
-      date: "2023-12-29",
-    },
-    {
-      type: "새소식",
-      title: "산업 표준 인증 획득",
-      date: "2023-09-01",
-    },
-  ]
+  const news = newsData.slice(0, 5)
 
   return (
     <section className="h-screen relative flex items-center justify-center bg-white">
@@ -46,7 +22,7 @@ export function NewsSection() {
                   className={`px-3 py-1 rounded-lg text-sm font-bold whitespace-nowrap min-w-[88px] text-center ${
                     item.type === "보도자료"
                       ? "bg-yellow-100 text-yellow-800"
-                      : "bg-blue-100 text-blue-800"
+                      : "bg-green-100 text-green-800"
                   }`}
                 >
                   {item.type}

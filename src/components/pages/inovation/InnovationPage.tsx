@@ -2,7 +2,7 @@ import { PageBanner } from "../../common/PageBanner"
 
 export default function InnovationPage() {
   return (
-    <div className="pt-48 min-h-screen">
+    <div className="min-h-screen">
       <PageBanner title="혁신의 시작" description="새움소프트는 늘 경험업은 축적업으로 더 나은 경영업을 위해 노력합니다" backgroundImage="/img/page_Banner_img/common_background_inno.png" />
 
       <div className="max-w-6xl mx-auto px-4 py-16">

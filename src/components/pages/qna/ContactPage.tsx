@@ -20,7 +20,7 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="pt-28 min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50">
       <PageBanner title="문의하기" description="질서만으로 문의를 확인하여, 최대한 빠른 답변 드리도록 최선을 다하겠습니다." backgroundImage="/img/page_Banner_img/common_background_contact.png" />
 
       <div className="max-w-3xl mx-auto px-4 py-16">

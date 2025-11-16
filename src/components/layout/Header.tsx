@@ -34,7 +34,6 @@ const mainMenus = [
       { name: "애니톡", path: "/solutions" },
       { name: "오피스온", path: "/solutions/officeon" },
       { name: "아파트123", path: "/solutions/apt123" },
-      { name: "컴피니톡", path: "/solutions/josa" },
     ],
   },
   { name: "문의하기", path: "/contact", subMenus: [] },
@@ -68,19 +67,22 @@ export function Header() {
             </Link>
 
             {/* Menu - Center */}
-            <nav className="flex gap-16 absolute left-1/2 transform -translate-x-1/2">
+            <nav className="flex gap-16 absolute left-1/2 transform -translate-x-1/2 items-center h-full">
               {mainMenus.map((menu) => (
-                <Link
+                <div
                   key={menu.name}
-                  to={menu.path}
-                  className={`text-2xl font-black transition-colors hover:text-blue-600 ${
-                    location.pathname.startsWith(menu.path) ? "text-blue-600" : "text-gray-700"
-                  }`}
+                  className="h-full flex items-center"
                   onMouseEnter={() => setHoveredMenu(menu.name)}
-                  onMouseLeave={() => setHoveredMenu(null)}
                 >
-                  {menu.name}
-                </Link>
+                  <Link
+                    to={menu.path}
+                    className={`text-2xl font-black transition-colors hover:text-blue-600 ${
+                      location.pathname.startsWith(menu.path) ? "text-blue-600" : "text-gray-700"
+                    }`}
+                  >
+                    {menu.name}
+                  </Link>
+                </div>
               ))}
             </nav>
           </div>
@@ -91,6 +93,10 @@ export function Header() {
       {showSubMenu && (
         <div
           className="bg-gray-50 border-b"
+          onMouseEnter={() => {
+            const currentMenu = hoveredMenu || activeMainMenu?.name
+            if (currentMenu) setHoveredMenu(currentMenu)
+          }}
           onMouseLeave={() => setHoveredMenu(null)}
         >
           <div className="max-w-7xl mx-auto px-4">

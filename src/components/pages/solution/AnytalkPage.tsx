@@ -2,7 +2,7 @@ import { PageBanner } from "../../common/PageBanner"
 
 export default function AnytalkPage() {
   return (
-    <div className="pt-48 min-h-screen">
+    <div className="min-h-screen">
       <PageBanner
         title="anytalk"
         description="기업의 업무 지식을 스마트하게 관리하고 모든 정보들이 쉽고 빠르게 개발순환 정보로 버팀목으로 소통할 수 있게 만든 AI 챗봇입니다."

@@ -2,7 +2,7 @@ import { PageBanner } from "../../common/PageBanner"
 
 export default function ICLStoryPage() {
   return (
-    <div className="pt-48 min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50">
       <PageBanner title="ICL 연구소 이야기" description="새움소프트 기술이는 10년 이상의 풍부한 경험이 축적되어 녹아들고 있습니다." backgroundImage="/img/page_Banner_img/common_background_inno.png" />
 
       <div className="max-w-5xl mx-auto px-4 py-16">

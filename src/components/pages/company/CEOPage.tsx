@@ -2,7 +2,7 @@ import { PageBanner } from "../../common/PageBanner"
 
 export default function CEOPage() {
   return (
-    <div className="pt-48 min-h-screen">
+    <div className="min-h-screen">
       <PageBanner
         title="CEO 인사말"
         description='늘 새로운 가능성에 도전하며 "할수있다"는 열정과 창의적 사고로 반드시 목표를 지향합니다.'

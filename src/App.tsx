@@ -1,4 +1,4 @@
-import { Routes, Route, useLocation } from "react-router-dom"
+import { Routes, Route } from "react-router-dom"
 import { Header } from "./components/layout/Header"
 import HomePage from "./components/pages/main/HomePage"
 import CompanyPage from "./components/pages/company/CompanyPage"
@@ -15,7 +15,6 @@ import ContributionPage from "./components/pages/inovation/ContributionPage"
 import AnytalkPage from "./components/pages/solution/AnytalkPage"
 import OfficeONPage from "./components/pages/solution/OfficeONPage"
 import Apt123Page from "./components/pages/solution/Apt123Page"
-import JosaPage from "./components/pages/solution/JosaPage"
 import ContactPage from "./components/pages/qna/ContactPage"
 import { Footer } from "./components/layout/Footer"
 
@@ -44,7 +43,6 @@ function App() {
           <Route path="/solutions" element={<AnytalkPage />} />
           <Route path="/solutions/officeon" element={<OfficeONPage />} />
           <Route path="/solutions/apt123" element={<Apt123Page />} />
-          <Route path="/solutions/josa" element={<JosaPage />} />
           {/* 문의하기 */}
           <Route path="/contact" element={<ContactPage />} />
         </Routes>
