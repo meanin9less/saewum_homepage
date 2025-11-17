@@ -15,9 +15,14 @@ export default function OfficeONPage() {
           <p className="text-sm sm:text-base md:text-lg text-gray-700 mb-4 sm:mb-6">
             언제 어디서나 협업을 통한 업무 생산성을 향상시킬수 있는 구축형 그룹웨어입니다.
           </p>
-          <button className="px-6 sm:px-8 py-2 sm:py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-semibold text-sm sm:text-base">
+          <a
+            href="http://www.officeon.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-6 sm:px-8 py-2 sm:py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-semibold text-sm sm:text-base"
+          >
             자세히 알아보기 →
-          </button>
+          </a>
         </div>
       </div>
 

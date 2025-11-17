@@ -1,4 +1,5 @@
 import { useRef, useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 
 export function AboutSection() {
   const contentRef = useRef<HTMLDivElement>(null)
@@ -53,9 +54,12 @@ export function AboutSection() {
             새움소프트는 글로벌한 기업 변화를 선도하는 소프트웨어 개발을 주도 수행하여 한국 및 해외 시장을 준비합니다.
             고객의 업무 로드를 줄여드리고 선제적 대응을 가능케 하여 신뢰를 쌓아드립니다.
           </p>
-          <button className="px-6 py-2 border border-blue-600 text-blue-600 rounded hover:bg-blue-50">
+          <Link
+            to="/company"
+            className="inline-block px-6 py-2 border border-blue-600 text-blue-600 rounded hover:bg-blue-50 transition-colors"
+          >
             더 알아보기 →
-          </button>
+          </Link>
         </div>
       </div>
     </section>

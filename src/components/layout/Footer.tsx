@@ -127,8 +127,19 @@ export function Footer() {
                 </li>
               </ul>
 
-              <select className="w-full bg-white/20 border border-white/30 rounded px-3 py-2 text-sm mb-4">
-                <option>FAMILY SITE</option>
+              <select
+                onChange={(e) => {
+                  if (e.target.value) {
+                    window.open(e.target.value, "_blank")
+                    e.target.value = ""
+                  }
+                }}
+                className="w-full bg-white/20 border border-white/30 rounded px-3 py-2 text-sm mb-4"
+              >
+                <option value="">FAMILY SITE</option>
+                <option value="https://anytalk.com/">anytalk</option>
+                <option value="http://www.officeon.com/">OfficeON</option>
+                <option value="https://www.apt123.kr/pcindex.html">아파트온</option>
               </select>
 
               <div className="flex gap-3">

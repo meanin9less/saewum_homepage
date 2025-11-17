@@ -55,8 +55,8 @@ export const GlassCard = ({ label, children, r }: GlassCardProps) => {
         cardHeight = cardWidth + 40;
       } else {
         // 데스크톱
-        cardWidth = Math.max(200, Math.min(260, width * 0.15));
-        cardHeight = cardWidth + 40;
+        cardWidth = Math.max(280, Math.min(340, width * 0.18));
+        cardHeight = cardWidth + 80;
       }
 
       setCardSize({
@@ -109,8 +109,8 @@ export const GlassCard = ({ label, children, r }: GlassCardProps) => {
         {label}
       </div>
 
-      {/* icon */}
-      <div className="text-white text-[2.5em]">{children}</div>
+      {/* content */}
+      <div className="w-full h-full flex items-center justify-center">{children}</div>
     </div>
   );
 };

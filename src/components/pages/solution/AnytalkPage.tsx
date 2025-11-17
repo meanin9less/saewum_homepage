@@ -15,9 +15,14 @@ export default function AnytalkPage() {
           <p className="text-sm sm:text-base md:text-lg text-gray-700 mb-4 sm:mb-6">
             기업의 업무 지식을 스마트하게 관리하고 모든 직원들이 쉽고 빠르게 필요한 정보를 바탕으로 소통할 수 있게 만드는 AI 챗봇입니다.
           </p>
-          <button className="px-6 sm:px-8 py-2 sm:py-3 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors font-semibold text-sm sm:text-base">
+          <a
+            href="https://anytalk.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-6 sm:px-8 py-2 sm:py-3 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors font-semibold text-sm sm:text-base"
+          >
             자세히 알아보기 →
-          </button>
+          </a>
         </div>
       </div>
 

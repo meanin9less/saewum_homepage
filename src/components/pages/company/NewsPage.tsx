@@ -12,24 +12,29 @@ export default function NewsPage() {
 
         <div className="space-y-4">
           {newsData.map((item, index) => (
-            <div
+            <a
               key={index}
-              className="bg-white border-b border-gray-300 p-6 hover:shadow-md transition-shadow cursor-pointer flex items-center justify-between"
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block bg-white border-b border-gray-300 p-6 hover:shadow-md transition-shadow cursor-pointer"
             >
-              <div className="flex items-center gap-4">
-                <span
-                  className={`px-3 py-1 rounded-lg text-sm font-bold whitespace-nowrap min-w-[88px] text-center ${
-                    item.type === "보도자료"
-                      ? "bg-yellow-100 text-yellow-800"
-                      : "bg-green-100 text-green-800"
-                  }`}
-                >
-                  {item.type}
-                </span>
-                <p className="text-gray-800">{item.title}</p>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-4">
+                  <span
+                    className={`px-3 py-1 rounded-lg text-sm font-bold whitespace-nowrap min-w-[88px] text-center ${
+                      item.type === "보도자료"
+                        ? "bg-yellow-100 text-yellow-800"
+                        : "bg-green-100 text-green-800"
+                    }`}
+                  >
+                    {item.type}
+                  </span>
+                  <p className="text-gray-800">{item.title}</p>
+                </div>
+                <span className="text-gray-500 text-sm">{item.date}</span>
               </div>
-              <span className="text-gray-500 text-sm">{item.date}</span>
-            </div>
+            </a>
           ))}
         </div>
 

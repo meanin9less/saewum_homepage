@@ -97,8 +97,8 @@ export function Header() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white/95 border-b max-h-[calc(100vh-80px)] overflow-y-auto backdrop-blur-sm">
-          <nav className="px-3 md:px-4 py-4">
+        <div className="md:hidden border-b max-h-[calc(100vh-80px)] overflow-y-auto backdrop-blur-lg" style={{ backgroundColor: "rgba(255, 255, 255, 0.3)" }}>
+          <nav className="px-3 md:px-4 py-4" style={{ backgroundColor: "rgba(255, 255, 255, 0)" }}>
             {mainMenus.map((menu) => (
               <div key={menu.name} className="mb-4">
                 <Link
@@ -132,8 +132,8 @@ export function Header() {
 
       {/* Desktop Sub Menu - Hidden on mobile */}
       {activeMainMenu && activeMainMenu.subMenus.length > 0 && (
-        <div className="hidden md:block bg-gray-50/95 border-b backdrop-blur-sm">
-          <div className="max-w-7xl mx-auto px-2 sm:px-4">
+        <div className="hidden md:block border-b backdrop-blur-lg" style={{ backgroundColor: "rgba(249, 250, 251, 0.3)" }}>
+          <div className="max-w-7xl mx-auto px-2 sm:px-4" style={{ backgroundColor: "rgba(255, 255, 255, 0)" }}>
             <div className="flex gap-4 md:gap-6 lg:gap-8 h-14 md:h-16 items-center justify-center flex-wrap">
               {activeMainMenu.subMenus.map((subMenu, index) => (
                 <Link

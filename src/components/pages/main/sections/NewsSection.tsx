@@ -13,24 +13,29 @@ export function NewsSection() {
 
         <div className="space-y-2 md:space-y-4 max-w-4xl mx-auto">
           {news.map((item, index) => (
-            <div
+            <a
               key={index}
-              className="bg-white border-b border-gray-300 p-3 md:p-4 hover:shadow-md transition-shadow cursor-pointer flex items-center justify-between gap-2 md:gap-4"
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block bg-white border-b border-gray-300 p-3 md:p-4 hover:shadow-md transition-shadow cursor-pointer"
             >
-              <div className="flex items-center gap-2 md:gap-4 flex-1 min-w-0">
-                <span
-                  className={`px-2 md:px-3 py-1 rounded-lg text-xs md:text-sm font-bold whitespace-nowrap min-w-[70px] md:min-w-[88px] text-center flex-shrink-0 ${
-                    item.type === "보도자료"
-                      ? "bg-yellow-100 text-yellow-800"
-                      : "bg-green-100 text-green-800"
-                  }`}
-                >
-                  {item.type}
-                </span>
-                <p className="text-xs sm:text-sm md:text-base text-gray-800 truncate">{item.title}</p>
+              <div className="flex items-center justify-between gap-2 md:gap-4">
+                <div className="flex items-center gap-2 md:gap-4 flex-1 min-w-0">
+                  <span
+                    className={`px-2 md:px-3 py-1 rounded-lg text-xs md:text-sm font-bold whitespace-nowrap min-w-[70px] md:min-w-[88px] text-center flex-shrink-0 ${
+                      item.type === "보도자료"
+                        ? "bg-yellow-100 text-yellow-800"
+                        : "bg-green-100 text-green-800"
+                    }`}
+                  >
+                    {item.type}
+                  </span>
+                  <p className="text-xs sm:text-sm md:text-base text-gray-800 truncate">{item.title}</p>
+                </div>
+                <span className="hidden md:block text-gray-500 text-xs md:text-sm whitespace-nowrap flex-shrink-0">{item.date}</span>
               </div>
-              <span className="hidden md:block text-gray-500 text-xs md:text-sm whitespace-nowrap flex-shrink-0">{item.date}</span>
-            </div>
+            </a>
           ))}
         </div>
 

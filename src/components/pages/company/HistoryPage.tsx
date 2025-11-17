@@ -24,9 +24,9 @@ export default function HistoryPage() {
         backgroundImage="/img/page_Banner_img/common_background.png"
       />
 
-      <div className="max-w-5xl mx-auto px-4 py-16">
+      <div className="max-w-5xl mx-auto px-4 py-8 md:py-16">
         {/* 탭 버튼 */}
-        <div className="flex gap-0 justify-center mb-12">
+        <div className="flex gap-0 justify-center mb-8 md:mb-12 max-w-md mx-auto">
           {tabs.map((tab) => (
             <TabButton
               key={tab.id}
@@ -38,7 +38,7 @@ export default function HistoryPage() {
         </div>
 
         {/* 콘텐츠 */}
-        <div className="space-y-16">
+        <div className="space-y-8 md:space-y-16">
           {Object.entries(currentData).map(([period, items], index) => (
             <TimelineSection key={index} period={period} items={items as any} />
           ))}

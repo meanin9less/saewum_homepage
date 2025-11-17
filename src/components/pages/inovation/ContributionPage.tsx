@@ -24,6 +24,10 @@ export default function ContributionPage() {
             <ul className="space-y-2 sm:space-y-3 max-w-3xl mx-auto">
               <li className="flex items-start">
                 <span className="text-blue-600 mr-2 flex-shrink-0">•</span>
+                <span className="text-xs sm:text-sm md:text-base">애니톡 차세대 생성형 AI 챗봇 서비스(Anytalk)</span>
+              </li>
+              <li className="flex items-start">
+                <span className="text-blue-600 mr-2 flex-shrink-0">•</span>
                 <span className="text-xs sm:text-sm md:text-base">조사1 공공정보 토탈 플랫폼(Josa1)</span>
               </li>
               <li className="flex items-start">

@@ -35,10 +35,7 @@ export default function GoalPage() {
               <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-3 md:mb-4">사용자들의 편의성을 고려한 최고의 기술력</h3>
               <div className="w-12 sm:w-16 h-1 bg-blue-600 mb-3 sm:mb-4 md:mb-6" />
               <p className="text-xs sm:text-sm md:text-base text-gray-600 leading-relaxed mb-2 sm:mb-3 md:mb-4">
-                훌륭한 편의성과 디자인, 정확하고 혁신적인 기술과 연계되어야 하며, 통일 좋은 보안과 성능, 기능간의 반응하는 유연함, 그리고 사용자들이 필요한 사용하고 있는 서비스를 구현해야 합니다.
-              </p>
-              <p className="text-xs sm:text-sm md:text-base text-gray-600 leading-relaxed">
-                새음소프트는 이 모든 것들을 소중하고 있습니다. 추가로 모든 것들은 이러한 것은 새음소프트가 만드는 모든 서비스 모듈들은 전체 대스트가 대행됩니다.
+                훌륭한 편의성과 디자인, 정확하고 혁신적인 기술과 엔지니어링, 품질 좋은 보안과 성능, 기능간의 빈틈없는 유연함, 그리고 사용자들이 평생 사용하고 싶은 서비스를 구현해야 합니다. 새움소프트는 이 모든 것들을 소유하고 있습니다. 조건들을 모두 갖추고 있다는 것은 새움소프트가 만드는 모든 서비스 모듈들은 직접 테스트하기 때문입니다.
               </p>
             </div>
             <div className="order-1 md:order-2">
@@ -57,10 +54,7 @@ export default function GoalPage() {
             <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-3 md:mb-4">기업소통을 위한 새음소프트의 열정적인 노력</h3>
             <div className="w-12 sm:w-16 h-1 bg-blue-600 mb-3 sm:mb-4 md:mb-6" />
             <p className="text-xs sm:text-sm md:text-base text-gray-600 leading-relaxed mb-2 sm:mb-3 md:mb-4">
-              기업소통을 위해서라면 필요하면 무엇이든 만들어냅니다. 가장 인성적인 OfficeON을 필두로, 모든 참여에서 필리핀 메신저, 대용량메일함, 기업 업무일정 이데일리이스의 워크플로우, 웹 포탈에이서 메일망 포털을 전환하는 마이핀박스(MEAP)로 그리고 검색엔진 (OrangeSearching)도 기업소통을 위해 할 일이 많습니다.
-            </p>
-            <p className="text-xs sm:text-sm md:text-base text-gray-600 leading-relaxed">
-              이 모든 하나하나가 기업의 업무에 보안과 편리함, 유연한 활용성으로 많은 경제를 주기 위한 새음소프트의 바람입니다.
+              기업소통을 위해서라면 필요하면 무엇이든 만들어냅니다. 가장 안정적인 OfficeON플랫폼, 모든 장치에서 편리한 메신저, 대용량 메일서버, 기업 업무와의 인터페이스의 워크플로우, 웹 포탈에서 모바일 포탈로 진화하는 하이브릭(MEAP)뿐 아니라 검색엔진(OrangeSearching)도 기업소통을 위해 필요했기 때문입니다. 이 모든 하나하나가 기업의 업무에 보안과 편리함, 유연한 활용성으로 일의 즐거움을 주기 위한 새움소프트의 바람입니다.
             </p>
           </div>
         </div>
