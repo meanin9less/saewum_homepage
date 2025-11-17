@@ -41,7 +41,6 @@ const mainMenus = [
 ]
 
 export function Header() {
-  const [hoveredMenu, setHoveredMenu] = useState<string | null>(null)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const location = useLocation()
 
@@ -50,9 +49,6 @@ export function Header() {
   }
 
   const activeMainMenu = getActiveMainMenu()
-  const showSubMenu =
-    (hoveredMenu && mainMenus.find((m) => m.name === hoveredMenu)?.subMenus.length) ||
-    (activeMainMenu && activeMainMenu.subMenus.length > 0)
 
   return (
     <header className="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
@@ -73,12 +69,11 @@ export function Header() {
               {mainMenus.map((menu) => (
                 <div
                   key={menu.name}
-                  className="h-full flex items-center"
-                  onMouseEnter={() => setHoveredMenu(menu.name)}
+                  className="h-full flex items-center relative group"
                 >
                   <Link
                     to={menu.path}
-                    className={`text-xl lg:text-2xl font-black transition-colors hover:text-blue-600 ${
+                    className={`text-xl lg:text-2xl font-black ${
                       location.pathname.startsWith(menu.path) ? "text-blue-600" : "text-gray-700"
                     }`}
                   >
@@ -102,7 +97,7 @@ export function Header() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white border-b">
+        <div className="md:hidden bg-white/95 border-b max-h-[calc(100vh-80px)] overflow-y-auto backdrop-blur-sm">
           <nav className="px-3 md:px-4 py-4">
             {mainMenus.map((menu) => (
               <div key={menu.name} className="mb-4">
@@ -136,32 +131,24 @@ export function Header() {
       )}
 
       {/* Desktop Sub Menu - Hidden on mobile */}
-      {showSubMenu && (
-        <div
-          className="hidden md:block bg-gray-50 border-b"
-          onMouseEnter={() => {
-            const currentMenu = hoveredMenu || activeMainMenu?.name
-            if (currentMenu) setHoveredMenu(currentMenu)
-          }}
-          onMouseLeave={() => setHoveredMenu(null)}
-        >
+      {activeMainMenu && activeMainMenu.subMenus.length > 0 && (
+        <div className="hidden md:block bg-gray-50/95 border-b backdrop-blur-sm">
           <div className="max-w-7xl mx-auto px-2 sm:px-4">
             <div className="flex gap-4 md:gap-6 lg:gap-8 h-14 md:h-16 items-center justify-center flex-wrap">
-              {(hoveredMenu ? mainMenus.find((m) => m.name === hoveredMenu)?.subMenus : activeMainMenu?.subMenus)?.map(
-                (subMenu, index) => (
-                  <Link
-                    key={index}
-                    to={subMenu.path}
-                    className="text-base md:text-lg font-semibold text-gray-600 hover:text-blue-600 transition-colors"
-                  >
-                    {subMenu.name}
-                  </Link>
-                ),
-              )}
+              {activeMainMenu.subMenus.map((subMenu, index) => (
+                <Link
+                  key={index}
+                  to={subMenu.path}
+                  className="text-base md:text-lg font-semibold text-gray-600 hover:text-blue-600"
+                >
+                  {subMenu.name}
+                </Link>
+              ))}
             </div>
           </div>
         </div>
       )}
+
     </header>
   )
 }

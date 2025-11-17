@@ -64,7 +64,7 @@ export function HeroSection({ currentSlide, onSlideChange }: HeroSectionProps) {
           <div className="flex flex-col justify-center items-center h-full">
             <div>
             {heroSlides[currentSlide].heading.map((text, index) => (
-              <h1 key={index} className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight ${index > 0 ? "ml-4 sm:ml-8 md:ml-12 lg:ml-24" : "mb-0"}`}>
+              <h1 key={index} className={`text-5xl sm:text-6xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight ${index > 0 ? "ml-4 sm:ml-8 md:ml-12 lg:ml-24" : "mb-0"}`}>
                 <span className="text-cyan-400">{text.charAt(0)}</span>
                 {text.slice(1)}
               </h1>

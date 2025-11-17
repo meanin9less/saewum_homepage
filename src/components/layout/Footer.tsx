@@ -1,17 +1,18 @@
 import { Link } from "react-router-dom"
+import { Facebook, MessageCircle } from "lucide-react"
 
 export function Footer() {
   return (
-    <div className="bg-cyan-500 text-white py-12">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="grid md:grid-cols-12 gap-8">
+    <footer className="bg-cyan-500 text-white py-8 md:py-12">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8">
           {/* Left Section - Company Info */}
           <div className="md:col-span-5">
-            <div className="text-3xl font-bold mb-6">
+            <div className="text-2xl md:text-3xl font-bold mb-4 md:mb-6">
               <span className="text-white">Saeum</span>
               <span className="text-white">Soft</span>
             </div>
-            <div className="space-y-1 text-sm">
+            <div className="space-y-1 text-xs md:text-sm">
               <p>(주)새움소프트</p>
               <p>경기도 안양시 만안구 안양천서로 93, 새움빌딩</p>
               <p>대표이사 _ 최병진</p>
@@ -21,8 +22,8 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Right Section - Navigation */}
-          <div className="md:col-span-7 grid grid-cols-4 gap-6">
+          {/* Right Section - Navigation (Hidden on Mobile) */}
+          <div className="hidden md:grid md:col-span-7 grid-cols-4 gap-6">
             <div>
               <h3 className="font-bold mb-4">회사소개</h3>
               <ul className="space-y-2 text-sm">
@@ -78,7 +79,7 @@ export function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/innovation/direction" className="hover:underline">
+                  <Link to="/innovation/goal" className="hover:underline">
                     나아가는 방향
                   </Link>
                 </li>
@@ -132,24 +133,22 @@ export function Footer() {
 
               <div className="flex gap-3">
                 <a
-                  href="https://facebook.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-8 h-8 bg-blue-700 rounded flex items-center justify-center hover:bg-blue-800 transition-colors"
+                  href="#"
+                  className="w-8 h-8 bg-white/20 rounded flex items-center justify-center hover:bg-white/30 transition-colors"
                 >
-                  <span className="text-white text-lg">f</span>
+                  <Facebook className="w-4 h-4" />
                 </a>
                 <a
                   href="#"
-                  className="w-8 h-8 bg-yellow-400 rounded flex items-center justify-center hover:bg-yellow-500 transition-colors"
+                  className="w-8 h-8 bg-white/20 rounded flex items-center justify-center hover:bg-white/30 transition-colors"
                 >
-                  <span className="text-gray-800 text-lg font-bold">💬</span>
+                  <MessageCircle className="w-4 h-4" />
                 </a>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </footer>
   )
 }

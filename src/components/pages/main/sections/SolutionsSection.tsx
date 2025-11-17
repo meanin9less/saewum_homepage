@@ -50,7 +50,7 @@ export function SolutionsSection() {
   ]
 
   return (
-    <section className="h-screen relative flex flex-col bg-gray-900">
+    <section className="relative flex flex-col bg-gray-900 md:h-screen">
       {/* <div className="flex-1 flex flex-col items-center justify-center px-4">
         <h2 className="text-4xl font-bold mb-4 text-white">솔루션</h2>
         <p className="text-gray-300 mb-12">
@@ -58,17 +58,18 @@ export function SolutionsSection() {
         </p>
       </div> */}
 
-      <div className="flex gap-0 flex-1 w-full">
+      <div className="flex flex-col md:flex-row gap-0 flex-1 w-full">
           {solutions.map((solution, index) => (
             <div
               key={index}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(0)}
               className={`
-                relative text-white overflow-hidden
+                relative text-white overflow-hidden cursor-pointer
                 transition-all duration-500 ease-out
-                flex flex-col items-center justify-center p-8 h-full
-                ${hoveredIndex === index ? "flex-[5]" : "flex-1"}
+                flex flex-col md:flex-col items-start md:items-center justify-start md:justify-center p-4 md:p-8
+                w-full md:w-auto md:h-full
+                ${hoveredIndex === index ? "md:flex-[5]" : "md:flex-1"}
                 ${solution.isContact ? "hover:brightness-110" : ""}
               `}
               style={{
@@ -78,21 +79,18 @@ export function SolutionsSection() {
               }}
             >
               <div className="absolute inset-0 bg-black/50"></div>
-              <div className="relative z-10">
-                <div className="w-16 h-16 mb-4 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+              <div className="relative z-10 w-full flex flex-col items-start justify-start md:items-start">
+                <div className="hidden md:flex w-16 h-16 mb-4 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
                   <span className="text-2xl">{solution.emoji}</span>
                 </div>
-                <h3 className="text-xl font-bold mb-2 whitespace-nowrap">
-                  {solution.title}
-                </h3>
-                <p className="text-sm opacity-90 whitespace-pre-line">
-                  {solution.description}
-                </p>
-                {solution.isContact && (
-                  <button className="mt-4 px-6 py-2 bg-blue-600 hover:bg-blue-500 rounded-full transition-colors">
-                    문의 →
-                  </button>
-                )}
+                <div className="flex flex-col md:flex-col gap-2 justify-start w-full md:justify-start md:items-start">
+                  <h3 className="text-lg md:text-xl font-bold md:mb-2 whitespace-nowrap">
+                    {solution.title}
+                  </h3>
+                  <p className="text-xs md:text-sm opacity-90 whitespace-pre-line line-clamp-2 md:line-clamp-none">
+                    {solution.description}
+                  </p>
+                </div>
               </div>
             </div>
           ))}

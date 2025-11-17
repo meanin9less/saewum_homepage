@@ -10,6 +10,7 @@ export const GlassCard = ({ label, children, r }: GlassCardProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const [isInView, setIsInView] = useState(false);
   const [index, setIndex] = useState(0);
+  const [cardSize, setCardSize] = useState({ width: 140, height: 160 });
 
   useEffect(() => {
     // 요소의 인덱스를 계산 (형제 요소 중 몇 번째인지)
@@ -35,13 +36,47 @@ export const GlassCard = ({ label, children, r }: GlassCardProps) => {
     return () => observer.disconnect();
   }, []);
 
+  // 화면 비율에 따라 카드 크기 계산
+  useEffect(() => {
+    const calculateSize = () => {
+      const width = window.innerWidth;
+
+      let cardWidth = 140;
+      let cardHeight = 160;
+
+      // 화면 너비에 따른 동적 계산
+      if (width < 640) {
+        // 모바일
+        cardWidth = Math.max(280, Math.min(320, width * 0.85));
+        cardHeight = cardWidth * 0.4;
+      } else if (width < 1024) {
+        // 태블릿
+        cardWidth = Math.max(160, Math.min(200, width * 0.25));
+        cardHeight = cardWidth + 40;
+      } else {
+        // 데스크톱
+        cardWidth = Math.max(200, Math.min(260, width * 0.15));
+        cardHeight = cardWidth + 40;
+      }
+
+      setCardSize({
+        width: Math.round(cardWidth),
+        height: Math.round(cardHeight),
+      });
+    };
+
+    calculateSize();
+    window.addEventListener("resize", calculateSize);
+    return () => window.removeEventListener("resize", calculateSize);
+  }, []);
+
   const delay = index * 100; // 각 카드마다 100ms 지연
 
   return (
     <div
       ref={ref}
       className={`
-        relative w-[240px] h-[280px]
+        relative
         bg-gradient-to-br from-white/30 via-white/15 to-white/5
         border border-white/20 shadow-2xl
         flex justify-center items-center
@@ -55,8 +90,10 @@ export const GlassCard = ({ label, children, r }: GlassCardProps) => {
         before:rounded-b-xl before:pointer-events-none before:z-10
       `}
       style={{
-        transform: isInView ? "rotate(0deg) translateX(0)" : `rotate(${r}deg) translateX(${r > 0 ? 50 : -50}px)`,
-        marginLeft: isInView ? "10px" : "-45px",
+        width: `${cardSize.width}px`,
+        height: `${cardSize.height}px`,
+        transform: isInView ? "rotate(0deg) translateX(0)" : `rotate(${r * 0.5}deg) translateX(${r > 0 ? 25 : -25}px)`,
+        marginLeft: isInView ? "10px" : "-25px",
         opacity: isInView ? 1 : 0.7,
         transition: `all 800ms cubic-bezier(0.34, 1.56, 0.64, 1) ${delay}ms`,
       }}
