@@ -15,7 +15,7 @@ interface Apt123FormProps {
 
 export function Apt123Form({ formData, onChange }: Apt123FormProps) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+    <>
       <FormField
         label="아파트명"
         value={formData.apartmentName}
@@ -49,6 +49,6 @@ export function Apt123Form({ formData, onChange }: Apt123FormProps) {
         required
         fullWidth
       />
-    </div>
+    </>
   )
 }

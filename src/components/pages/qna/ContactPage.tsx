@@ -4,6 +4,7 @@ import { PageBanner } from "../../common/PageBanner"
 import { AnytalkForm } from "./AnytalkForm"
 import { Apt123Form } from "./Apt123Form"
 import { SaeumForm } from "./SaeumForm"
+import { contactApi } from "../../../api/contact"
 
 interface FormData {
   company: string
@@ -32,23 +33,94 @@ export default function ContactPage() {
     content: "",
     apartmentName: "",
   })
+  const [isLoading, setIsLoading] = useState(false)
+  const [agreeChecked, setAgreeChecked] = useState(false)
 
   const handleFieldChange = (field: keyof FormData, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }))
   }
 
+  // 필수 필드 검증
+  const validateForm = (): string | null => {
+    // 개인정보 동의 확인
+    if (!agreeChecked) {
+      return "개인정보 수집 및 이용에 대한 안내는 반드시 동의하셔야 합니다."
+    }
+
+    // 문의분류별 필수 필드 검증
+    if (inquiry === "새움소프트") {
+      if (!formData.name.trim()) return "문의자명을 입력해주세요."
+      if (!formData.phone.trim()) return "연락처를 입력해주세요."
+      if (!formData.email.trim()) return "이메일을 입력해주세요."
+      if (!formData.content.trim()) return "문의내용을 입력해주세요."
+    } else if (inquiry === "아파트123") {
+      if (!formData.apartmentName.trim()) return "아파트명을 입력해주세요."
+      if (!formData.name.trim()) return "문의자명을 입력해주세요."
+      if (!formData.email.trim()) return "이메일을 입력해주세요."
+      if (!formData.phone.trim()) return "전화번호를 입력해주세요."
+      if (!formData.employees.trim()) return "사용인원을 입력해주세요."
+    } else if (inquiry === "애니톡" || inquiry === "오피스온") {
+      if (!formData.company.trim()) return "회사명을 입력해주세요."
+      if (!formData.name.trim()) return "문의자명을 입력해주세요."
+      if (!formData.title.trim()) return "직함을 입력해주세요."
+      if (!formData.email.trim()) return "이메일을 입력해주세요."
+      if (!formData.phone.trim()) return "전화번호를 입력해주세요."
+      if (!formData.employees.trim()) return "사용인원을 입력해주세요."
+      if (!formData.meetingDate.trim()) return "미팅 희망일자를 입력해주세요."
+      if (!formData.content.trim()) return "문의내용을 입력해주세요."
+    }
+
+    return null
+  }
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
-    try {
-      const { contactApi } = await import("../../../api/contact")
+    // 폼 검증
+    const validationError = validateForm()
+    if (validationError) {
+      alert(validationError)
+      return
+    }
 
-      await contactApi.submitForm({
-        inquiry,
-        ...formData,
+    setIsLoading(true)
+
+    try {
+      // 레거시 API 형식으로 데이터 구성
+      let comments = ""
+
+      if (inquiry === "새움소프트") {
+        comments = `- 본문내용 : ${formData.content}\n`
+      } else if (inquiry === "아파트123") {
+        comments += `- 아파트이름 : ${formData.apartmentName}\n`
+        comments += `- 사용인원 : ${formData.employees}\n`
+        comments += `- 본문내용 : ${formData.content}\n`
+      } else {
+        // 애니톡, 오피스온
+        comments += `- 직책 : ${formData.title}\n`
+        comments += `- 사용인원 : ${formData.employees}\n`
+        comments += `- 미팅날짜 : ${formData.meetingDate}\n`
+        comments += `- 그룹웨어교체여부 : new\n`
+        comments += `- 본문내용 : ${formData.content}\n`
+      }
+
+      // 레거시 API 호출
+      await contactApi.submitLegacyForm({
+        inquireType: "I",
+        inquireKind: "C",
+        userName: formData.name,
+        replyEmail: formData.email,
+        userMobileNumber: formData.phone,
+        companyName: formData.company || undefined,
+        companyHomepage: formData.companyWebsite || undefined,
+        totalPeople: formData.employees || undefined,
+        meetingDate: formData.meetingDate || undefined,
+        comments:
+          `문의분류: ${inquiry} <br>susoft 홈페이지에서 접수되었습니다.<br>` + comments,
+        homePageSite: "susoft",
       })
 
-      alert("문의가 접수되었습니다.")
+      alert(`${formData.name}님께서 작성하신 문의사항이 접수되었습니다.\n접수해주신 연락처로 연락드리겠습니다. 감사합니다.`)
 
       // 폼 초기화
       setFormData({
@@ -64,9 +136,13 @@ export default function ContactPage() {
         apartmentName: "",
       })
       setInquiry("새움소프트")
+      setAgreeChecked(false)
     } catch (error) {
       console.error("Submit error:", error)
-      alert("문의 접수 중 오류가 발생했습니다. 다시 시도해주세요.")
+      const errorMessage = error instanceof Error ? error.message : "문의 접수 중 오류가 발생했습니다."
+      alert(errorMessage)
+    } finally {
+      setIsLoading(false)
     }
   }
 
@@ -105,9 +181,9 @@ export default function ContactPage() {
                   <option>아파트123</option>
                 </select>
               </div>
-            </div>
 
-            {renderFormFields()}
+              {renderFormFields()}
+            </div>
 
             <div className="bg-gray-50 p-3 sm:p-4 md:p-5 rounded text-xs sm:text-sm text-gray-600">
               <p className="font-bold mb-2 sm:mb-3">개인정보 수집 및 이용에 대한 안내</p>
@@ -120,14 +196,24 @@ export default function ContactPage() {
             </div>
 
             <div className="flex items-start sm:items-center gap-2">
-              <input type="checkbox" id="agree" className="mt-1 sm:mt-0" required />
+              <input
+                type="checkbox"
+                id="agree"
+                className="mt-1 sm:mt-0"
+                checked={agreeChecked}
+                onChange={(e) => setAgreeChecked(e.target.checked)}
+              />
               <label htmlFor="agree" className="text-xs sm:text-sm">
                 위 개인 정보 수집 및 이용에 동의합니다.
               </label>
             </div>
 
-            <button type="submit" className="w-full bg-blue-600 text-white py-2 sm:py-3 rounded-lg font-bold text-sm sm:text-base hover:bg-blue-700 transition-colors">
-              등록
+            <button
+              type="submit"
+              disabled={isLoading}
+              className="w-full bg-blue-600 text-white py-2 sm:py-3 rounded-lg font-bold text-sm sm:text-base hover:bg-blue-700 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed"
+            >
+              {isLoading ? "접수 중..." : "등록"}
             </button>
           </form>
         </div>

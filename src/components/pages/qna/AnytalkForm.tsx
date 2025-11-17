@@ -19,7 +19,7 @@ interface AnytalkFormProps {
 
 export function AnytalkForm({ formData, onChange }: AnytalkFormProps) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+    <>
       <FormField
         label="회사명"
         value={formData.company}
@@ -76,6 +76,6 @@ export function AnytalkForm({ formData, onChange }: AnytalkFormProps) {
         value={formData.content}
         onChange={(e) => onChange("content", e.target.value)}
       />
-    </div>
+    </>
   )
 }

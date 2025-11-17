@@ -14,7 +14,7 @@ interface SaeumFormProps {
 
 export function SaeumForm({ formData, onChange }: SaeumFormProps) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+    <>
       <FormField
         label="문의자명"
         value={formData.name}
@@ -38,6 +38,6 @@ export function SaeumForm({ formData, onChange }: SaeumFormProps) {
         value={formData.content}
         onChange={(e) => onChange("content", e.target.value)}
       />
-    </div>
+    </>
   )
 }
