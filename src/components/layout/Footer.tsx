@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom"
-import { Facebook, MessageCircle } from "lucide-react"
 
 export function Footer() {
   return (
@@ -144,16 +143,20 @@ export function Footer() {
 
               <div className="flex gap-3">
                 <a
-                  href="#"
+                  href="https://www.facebook.com/people/%EC%83%88%EC%9B%80%EC%86%8C%ED%94%84%ED%8A%B8/100058285723214/?ref=bookmarks"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-8 h-8 bg-white/20 rounded flex items-center justify-center hover:bg-white/30 transition-colors"
                 >
-                  <Facebook className="w-4 h-4" />
+                  <img src="/logos/facebook-logo2.png" alt="facebook" className="w-5 h-5" />
                 </a>
                 <a
-                  href="#"
+                  href="https://blog.naver.com/saeumsoft"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-8 h-8 bg-white/20 rounded flex items-center justify-center hover:bg-white/30 transition-colors"
                 >
-                  <MessageCircle className="w-4 h-4" />
+                  <img src="/logos/blog.png" alt="blog" className="w-5 h-5" />
                 </a>
               </div>
             </div>
