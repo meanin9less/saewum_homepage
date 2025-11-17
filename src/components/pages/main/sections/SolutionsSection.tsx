@@ -80,7 +80,7 @@ export function SolutionsSection() {
                 backgroundPosition: "center",
               }}
             >
-              <div className={`absolute inset-0 transition-all duration-500 ${hoveredIndex === index ? "bg-black/0" : "bg-black/50"}`}></div>
+              <div className={`absolute inset-0 transition-all duration-500 bg-black/50 ${hoveredIndex === index ? "md:bg-black/0" : ""}`}></div>
               <div className="relative z-10 w-full flex flex-col items-start justify-start md:items-start">
                 {/* <div className="hidden md:flex w-16 h-16 mb-4 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
                   <span className="text-2xl">{solution.emoji}</span>
