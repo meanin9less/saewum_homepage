@@ -1,5 +1,3 @@
-"use client"
-
 import { PageBanner } from "../../common/PageBanner"
 import { TabButton } from "../../common/TabButton"
 import { TimelineSection } from "../../common/TimelineSection"

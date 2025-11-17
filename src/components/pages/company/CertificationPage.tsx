@@ -1,5 +1,3 @@
-"use client"
-
 import { useState } from "react"
 import { PageBanner } from "../../common/PageBanner"
 import { TabButton } from "../../common/TabButton"

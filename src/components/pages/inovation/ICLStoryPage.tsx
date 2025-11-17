@@ -25,7 +25,7 @@ export default function ICLStoryPage() {
               </p>
             </div>
           </div>
-유
+
           {/* Section 2 - Reversed order */}
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6 md:gap-8">
             <div className="order-1 md:order-1">

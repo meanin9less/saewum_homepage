@@ -1,107 +1,132 @@
-"use client"
-
 import type React from "react"
-
 import { useState } from "react"
 import { PageBanner } from "../../common/PageBanner"
+import { AnytalkForm } from "./AnytalkForm"
+import { Apt123Form } from "./Apt123Form"
+import { SaeumForm } from "./SaeumForm"
+
+interface FormData {
+  company: string
+  companyWebsite: string
+  name: string
+  title: string
+  phone: string
+  email: string
+  employees: string
+  meetingDate: string
+  content: string
+  apartmentName: string
+}
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    company: "새움소프트",
+  const [inquiry, setInquiry] = useState("새움소프트")
+  const [formData, setFormData] = useState<FormData>({
+    company: "",
+    companyWebsite: "",
     name: "",
+    title: "",
     phone: "",
     email: "",
+    employees: "",
+    meetingDate: "",
     content: "",
+    apartmentName: "",
   })
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleFieldChange = (field: keyof FormData, value: string) => {
+    setFormData((prev) => ({ ...prev, [field]: value }))
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    alert("문의가 접수되었습니다.")
+
+    try {
+      const { contactApi } = await import("../../../api/contact")
+
+      await contactApi.submitForm({
+        inquiry,
+        ...formData,
+      })
+
+      alert("문의가 접수되었습니다.")
+
+      // 폼 초기화
+      setFormData({
+        company: "",
+        companyWebsite: "",
+        name: "",
+        title: "",
+        phone: "",
+        email: "",
+        employees: "",
+        meetingDate: "",
+        content: "",
+        apartmentName: "",
+      })
+      setInquiry("새움소프트")
+    } catch (error) {
+      console.error("Submit error:", error)
+      alert("문의 접수 중 오류가 발생했습니다. 다시 시도해주세요.")
+    }
+  }
+
+  const renderFormFields = () => {
+    if (inquiry === "애니톡" || inquiry === "오피스온") {
+      return <AnytalkForm formData={formData} onChange={handleFieldChange} />
+    }
+    if (inquiry === "아파트123") {
+      return <Apt123Form formData={formData} onChange={handleFieldChange} />
+    }
+    return <SaeumForm formData={formData} onChange={handleFieldChange} />
   }
 
   return (
     <div className="min-h-screen bg-gray-50">
       <PageBanner title="문의하기" description="질서만으로 문의를 확인하여, 최대한 빠른 답변 드리도록 최선을 다하겠습니다." backgroundImage="/img/page_Banner_img/common_background_contact.png" />
 
-      <div className="max-w-3xl mx-auto px-4 py-16">
-        <div className="bg-white p-8 rounded-lg shadow-lg">
-          <h2 className="text-2xl font-bold mb-8">문의 신청서</h2>
+      <div className="max-w-3xl mx-auto px-3 sm:px-4 md:px-6 py-8 sm:py-12 md:py-16">
+        <div className="bg-white p-4 sm:p-6 md:p-8 rounded-lg shadow-lg">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-6 sm:mb-8">문의 신청서</h2>
 
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid md:grid-cols-2 gap-6">
+          <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
               <div>
-                <label className="block text-sm font-medium mb-2 text-blue-600">문의분류</label>
+                <label className="block text-xs sm:text-sm font-medium mb-1 sm:mb-2 text-blue-600">문의분류</label>
                 <select
-                  className="w-full px-4 py-2 border rounded-lg"
-                  value={formData.company}
-                  onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                  className="w-full px-3 sm:px-4 py-2 border rounded-lg text-sm sm:text-base"
+                  value={inquiry}
+                  onChange={(e) => {
+                    setInquiry(e.target.value)
+                  }}
                 >
                   <option>새움소프트</option>
+                  <option>애니톡</option>
+                  <option>오피스온</option>
+                  <option>아파트123</option>
                 </select>
               </div>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <label className="block text-sm font-medium mb-2 text-blue-600">문의자명</label>
-                <input
-                  type="text"
-                  className="w-full px-4 py-2 border rounded-lg"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  required
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium mb-2 text-blue-600">전화번호</label>
-                <input
-                  type="tel"
-                  className="w-full px-4 py-2 border rounded-lg"
-                  value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  required
-                />
-              </div>
-            </div>
+            {renderFormFields()}
 
-            <div>
-              <label className="block text-sm font-medium mb-2">E-mail</label>
-              <input
-                type="email"
-                className="w-full px-4 py-2 border rounded-lg"
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                required
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium mb-2 text-blue-600">문의내용</label>
-              <textarea
-                className="w-full px-4 py-2 border rounded-lg h-32"
-                value={formData.content}
-                onChange={(e) => setFormData({ ...formData, content: e.target.value })}
-                required
-              />
-            </div>
-
-            <div className="bg-gray-50 p-4 rounded text-sm text-gray-600">
-              <p className="font-bold mb-2">개인정보 수집 및 이용에 대한 안내</p>
-              <ul className="space-y-1 text-xs">
-                <li>• 수집 및 이용 목적 : 발문공문, 회시명, 부서명, 직위서</li>
-                <li>• 수집 및 이용 목적/기간 : 문의 검수 및 회시자 신문</li>
-                <li>• 수집 및 이용 기간 : 해당 서명 공문하기 전까지 이용 (단, 고치 시 서지 시 폐기)</li>
+            <div className="bg-gray-50 p-3 sm:p-4 md:p-5 rounded text-xs sm:text-sm text-gray-600">
+              <p className="font-bold mb-2 sm:mb-3">개인정보 수집 및 이용에 대한 안내</p>
+              <ul className="space-y-1 text-xs sm:text-xs">
+                <li>• 수집 및 이용 항목 : 방문경로, 회사명, 부서명, 직원수, 이름, 이메일, 연락처</li>
+                <li>• 수집 및 이용 목적/기간 : 문의 접수 및 회신과 진행</li>
+                <li>• 수집 및 이용 기간 : 해당 사업 종료하기 전까지 이용 (단, 요청 시 삭제)</li>
               </ul>
+              <p className="text-xs mt-2 sm:mt-3 leading-relaxed">그 외 문의 내용은 관계법령 및 기타 응대를 위해 개인정보를 보관할 수 있습니다.<br />그 밖에 사항은 개인 정보 취급 방침을 준수 합니다</p>
             </div>
 
-            <div className="flex items-center">
-              <input type="checkbox" id="agree" className="mr-2" required />
-              <label htmlFor="agree" className="text-sm">
+            <div className="flex items-start sm:items-center gap-2">
+              <input type="checkbox" id="agree" className="mt-1 sm:mt-0" required />
+              <label htmlFor="agree" className="text-xs sm:text-sm">
                 위 개인 정보 수집 및 이용에 동의합니다.
               </label>
             </div>
 
-            <button type="submit" className="w-full bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700">
+            <button type="submit" className="w-full bg-blue-600 text-white py-2 sm:py-3 rounded-lg font-bold text-sm sm:text-base hover:bg-blue-700 transition-colors">
               등록
             </button>
           </form>

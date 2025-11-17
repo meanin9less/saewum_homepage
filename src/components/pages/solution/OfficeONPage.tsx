@@ -45,41 +45,41 @@ export default function OfficeONPage() {
 
           <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
             {[
-              { image: "/img/solution/mail.png", title: "메일", desc: "메일 관리하여 신뢰성을 높입니다." },
-              { image: "/img/solution/addrbook.png", title: "주소록", desc: "통합 주 있는 실무관리를 합니다." },
-              { image: "/img/solution/calender.png", title: "일정관리", desc: "일정과 전체 협업을 구성합니다." },
-              { image: "/img/solution/comunity.png", title: "커뮤니티", desc: "게시판을 만들어 구성원 간의 소통을 할 수 있습니다." },
+              { image: "/img/solution/mail.png", title: "메일", desc: "메일 관리의 편리성과 신뢰성을 높입니다." },
+              { image: "/img/solution/addrbook.png", title: "주소록", desc: "놓칠 수 있는 상대방과의 정보를 관리할 수 있습니다." },
+              { image: "/img/solution/calender.png", title: "캘린더", desc: "일정과 진행 현황을 구성원과 실시간으로 공유합니다." },
+              { image: "/img/solution/comunity.png", title: "커뮤니티", desc: "게시판을 만들어 구성원과 공유/토론할 수 있습니다." },
               {
                 image: "/img/solution/filedrive.png",
                 title: "파일 드라이브",
-                desc: "내 PC와 스마트폰의 파일들을 클라우드에 백업하며업 관리합니다.",
+                desc: "내 PC와 스마트폰의 파일들을 첨부파일과 웹하드로 활용합니다.",
               },
-              { image: "/img/solution/onlineSign.png", title: "전자결재", desc: "체계적인 의사결정을 위한 구성원의 승인을 공유" },
-              { image: "/img/solution/mobile.png", title: "모바일", desc: "언제 어디서나 업무 지능적 관리를 모바일(Android, iOS 모두지원)" },
+              { image: "/img/solution/onlineSign.png", title: "전자결재", desc: "체계적인 의사결정을 위한 구성원 간의 신뢰성 있는 공유" },
+              { image: "/img/solution/mobile.png", title: "모바일", desc: "언제 어디서나 멈추지 않고 움직이는 모바일 오피스(Android, IOS 모두 지원)" },
               {
                 image: "/img/solution/conversion.png",
-                title: "컨버전스",
-                desc: "중요한 주소, 일정, 메일, 채팅, 결재서류 등 하나의 계정안에 모든 것",
+                title: "컨버젼스",
+                desc: "중요한 주소, 일정, 메일, 게시글, 결재문서를 하나의 캐비닛에 모두 담습니다.",
               },
               {
                 image: "/img/solution/multi.png",
                 title: "멀티포탈",
-                desc: "워크 스테이션, 포렌식 및, 각자의 작업공간을 개시 수 있도록 제시합니다.",
+                desc: "워크 스페이스, 포틀릿으로 나와 회사에 맞는 업무를 구성합니다.",
               },
               {
                 image: "/img/solution/messenser.png",
                 title: "메신저",
-                desc: "언제 어디서나 모든 조직에서 지원하는 실시 간 기업용 커뮤니케이션 도구",
+                desc: "언제 어디서나 모든 장치에서 지원하는 실시간 기업용 커뮤니케이션입니다.",
               },
               {
                 image: "/img/solution/organi.png",
-                title: "기록 포텐노",
-                desc: "기업 단위를 바탕으로 투자 / 조직재건로 템플릿 수 있도록, 제시합니다",
+                title: "기업 조직도",
+                desc: "기업 문화를 반영하는 부서/조직체계로 협업합니다.",
               },
               {
                 image: "/img/solution/timeline.png",
                 title: "타임라인",
-                desc: "내가 업수 또는 협트를 하는 모든 업무를 개 획득 수 있도록 제시합니다.",
+                desc: "내가 언제 무엇을 했는지 알려주고 일정을 계획할 수 있도록 제시합니다.",
               },
             ].map((feature, index) => (
               <div key={index} className="bg-white rounded-lg p-4 sm:p-6 hover:shadow-md transition-shadow text-center">

@@ -7,8 +7,8 @@ export default function NewsPage() {
     <div className="min-h-screen bg-gray-50">
       <PageBanner title="회사소식" description="새움소프트의 최신 뉴스와 소식을 확인하세요" backgroundImage="/img/page_Banner_img/common_background.png" />
 
-      <div className="max-w-4xl mx-auto px-4 py-16">
-        <h2 className="text-3xl font-bold text-center mb-12">회사 소식</h2>
+      <div className="max-w-4xl mx-auto px-3 sm:px-4 py-8 sm:py-16">
+        <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12">회사 소식</h2>
 
         <div className="space-y-4">
           {newsData.map((item, index) => (
@@ -17,12 +17,12 @@ export default function NewsPage() {
               href={item.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="block bg-white border-b border-gray-300 p-6 hover:shadow-md transition-shadow cursor-pointer"
+              className="block bg-white border-b border-gray-300 p-4 sm:p-6 hover:shadow-md transition-shadow cursor-pointer"
             >
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-4">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-4">
+                <div className="flex items-center gap-2 sm:gap-4">
                   <span
-                    className={`px-3 py-1 rounded-lg text-sm font-bold whitespace-nowrap min-w-[88px] text-center ${
+                    className={`px-2 sm:px-3 py-1 rounded-lg text-xs sm:text-sm font-bold whitespace-nowrap min-w-[75px] sm:min-w-[88px] text-center ${
                       item.type === "보도자료"
                         ? "bg-yellow-100 text-yellow-800"
                         : "bg-green-100 text-green-800"
@@ -30,9 +30,9 @@ export default function NewsPage() {
                   >
                     {item.type}
                   </span>
-                  <p className="text-gray-800">{item.title}</p>
+                  <p className="text-gray-800 text-xs sm:text-sm md:text-base">{item.title}</p>
                 </div>
-                <span className="text-gray-500 text-sm">{item.date}</span>
+                <span className="hidden sm:inline text-gray-500 text-xs sm:text-sm">{item.date}</span>
               </div>
             </a>
           ))}
