@@ -51,15 +51,12 @@ export function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
       {/* Main Menu */}
-      <div className="border-b">
+      <div>
         <div className="w-full px-3 md:px-4">
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
             <Link to="/" className="flex items-center z-10 flex-shrink-0">
-              <span className="text-2xl sm:text-3xl md:text-5xl font-bold leading-none whitespace-nowrap">
-                <span className="text-gray-800">Saeum</span>
-                <span className="text-blue-500">Soft</span>
-              </span>
+              <img src="/img/page_Banner_img/conversion.png" alt="Saeum Soft" className="h-6 sm:h-7 md:h-10 w-auto object-contain" />
             </Link>
 
             {/* Desktop Menu - Hidden on mobile */}
@@ -130,7 +127,7 @@ export function Header() {
 
       {/* Desktop Sub Menu - Hidden on mobile */}
       {activeMainMenu && activeMainMenu.subMenus.length > 0 && (
-        <div className="hidden md:block border-b backdrop-blur-lg" style={{ backgroundColor: "rgba(249, 250, 251, 0.3)" }}>
+        <div className="hidden md:block backdrop-blur-lg" style={{ backgroundColor: "rgba(249, 250, 251, 0.3)" }}>
           <div className="max-w-7xl mx-auto px-2 sm:px-4" style={{ backgroundColor: "rgba(255, 255, 255, 0)" }}>
             <div className="flex gap-4 md:gap-6 lg:gap-8 h-14 md:h-16 items-center justify-center flex-wrap">
               {activeMainMenu.subMenus.map((subMenu, index) => (
