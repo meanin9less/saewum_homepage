@@ -1,4 +1,5 @@
 import { LogoCarousel } from '../../common/LogoCarousel'
+import { Link } from 'react-router-dom'
 
 const officeonLogos = [
   '/img/solution/officeon/other_logos/CJ_logo.png',
@@ -58,6 +59,44 @@ export default function OfficeONPage() {
         </div>
       </div>
 
+      {/* 오피스온 그룹웨어 검증 섹션 */}
+      <div className="w-full py-12 sm:py-16 md:py-20 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-3 sm:px-4">
+          <h3 className="text-center text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-gray-800">
+            오피스온 그룹웨어,
+          </h3>
+          <p className="text-center text-xl sm:text-2xl md:text-3xl font-bold mb-12 sm:mb-16 text-blue-600">
+            이미 많은 사용자들이 검증했습니다
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
+            {[
+              {
+                number: "1",
+                title: "업무효율 80% 증가",
+                desc: "개인캘린더, 공용 캘린더를 통한\n일정 관리로 개인 및 부서의\n일정관리를 한번에!"
+              },
+              {
+                number: "2",
+                title: "생산성 70% 증가",
+                desc: "컨버젼스 기능으로 메일 및 전자결재,\n게시물 등을 프로젝트 별로 한번에!"
+              },
+              {
+                number: "3",
+                title: "업무처리속도 90% 증가",
+                desc: "오피스온 내부 전자결재 시스템\n이용으로 별도의 전자결재 프로그램,\n필요 없이 한번에!"
+              }
+            ].map((benefit) => (
+              <div key={benefit.number} className="bg-white rounded-lg p-6 sm:p-8 text-center shadow-sm hover:shadow-md transition-shadow">
+                <div className="text-4xl sm:text-5xl font-bold text-blue-600 mb-4">{benefit.number}</div>
+                <h4 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 mb-4">{benefit.title}</h4>
+                <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed whitespace-pre-line">{benefit.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
       <div className="w-full py-8 sm:py-12 md:py-16">
         <div className="max-w-6xl mx-auto px-3 sm:px-4">
           <h3 className="text-center text-lg sm:text-xl md:text-2xl font-bold mb-8 sm:mb-12 text-gray-800">
@@ -68,13 +107,13 @@ export default function OfficeONPage() {
       </div>
 
       <div className="max-w-6xl mx-auto px-3 sm:px-4 py-8 sm:py-12 md:py-16">
-        <p className="text-sm sm:text-base md:text-lg text-gray-700 mb-4 sm:mb-6">
+        {/* <p className="text-sm sm:text-base md:text-lg text-gray-700 mb-4 sm:mb-6">
               언제 어디서나 협업을 통한 업무 생산성을 향상시킬수 있는 구축형 그룹웨어입니다.
         </p>
       <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed text-center">
             오피스 3.0은 기존 그룹웨어의 기능은 실시간 협업과 컨텐츠컨버젼스<br />
             활용으로당신의 업무에 편안함과 신뢰를 더합니다.
-      </p>
+      </p> */}
 
 
         <div className="mb-12 sm:mb-16">
@@ -128,6 +167,31 @@ export default function OfficeONPage() {
               </div>
             ))}
           </div>
+
+          {/* 모바일 전용 - 다른 서비스 링크 */}
+                <div className="md:hidden bg-white py-8 sm:py-12 border-t border-gray-200">
+                  <div className="max-w-6xl mx-auto px-3 sm:px-4">
+                    <h3 className="text-lg sm:text-xl font-bold text-center mb-6 text-gray-800">새움소프트의 또 다른 솔루션</h3>
+                    <div className="flex gap-4 items-center justify-center">
+                      <Link
+                        to="/solutions/officeon"
+                        className="flex-1 py-3 px-2 bg-white rounded-lg text-center font-semibold hover:bg-blue-50 transition-colors"
+                      >
+                        <div className="h-10 flex items-center justify-center">
+                          <img src="/img/solution/anytalkLogoColor.png" alt="anytalk" className="h-full object-contain" />
+                        </div>
+                      </Link>
+                      <Link
+                        to="/solutions/apt123"
+                        className="flex-1 py-3 px-2 bg-white rounded-lg text-center font-semibold hover:bg-blue-50 transition-colors"
+                      >
+                        <div className="h-10 flex items-center justify-center">
+                          <img src="/img/solution/apt123/apart123Logo.png" alt="아파트123" className="h-full object-contain" />
+                        </div>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
         </div>
       </div>
     </div>

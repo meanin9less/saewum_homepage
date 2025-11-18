@@ -43,14 +43,14 @@ export function AboutSection() {
             transition: "all 800ms cubic-bezier(0.34, 1.56, 0.64, 1)",
           }}
         >
-          <img src="/img/main/aboutSection/saeum_since2015.png" alt="Saeum Soft" className="mb-6 h-20" />
+          <img src="/img/main/aboutSection/logo_switch.png" alt="Saeum Soft" className="mb-6 h-20" />
           <p className="text-lg mb-6">
             변화하신을 바탕으로 새움소프트의
             <br />
             기술력은 세계를 향해 나아갑니다.
           </p>
           <img src="/img/main/aboutSection/bar.png" alt="bar" className="mb-6 h-1" />
-          <p className="text-gray-600 mb-8">
+          <p className="text-gray-900 mb-8">
             새움소프트는 글로벌한 기업 변화를 선도하는 소프트웨어 개발을 주도 수행하여 한국 및 해외 시장을 준비합니다.
             고객의 업무 로드를 줄여드리고 선제적 대응을 가능케 하여 신뢰를 쌓아드립니다.
           </p>

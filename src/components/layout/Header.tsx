@@ -52,7 +52,7 @@ export function Header() {
     <header className="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
       {/* Main Menu */}
       <div>
-        <div className="w-full px-3 md:px-4">
+        <div className="w-full px-3 md:px-4 shadow-md md:shadow-none shadow-slate-900/10">
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
             <Link to="/" className="flex items-center z-10 flex-shrink-0">
@@ -91,43 +91,49 @@ export function Header() {
       </div>
 
       {/* Mobile Menu */}
-      {mobileMenuOpen && (
-        <div className="md:hidden border-b max-h-[calc(100vh-80px)] overflow-y-auto backdrop-blur-lg" style={{ backgroundColor: "rgba(255, 255, 255, 0.3)" }}>
-          <nav className="px-3 md:px-4 py-4" style={{ backgroundColor: "rgba(255, 255, 255, 0)" }}>
-            {mainMenus.map((menu) => (
-              <div key={menu.name} className="mb-4">
-                <Link
-                  to={menu.path}
-                  className={`block text-xl font-bold py-2 ${
-                    location.pathname.startsWith(menu.path) ? "text-blue-600" : "text-gray-700"
-                  }`}
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {menu.name}
-                </Link>
-                {menu.subMenus.length > 0 && (
-                  <div className="ml-4 mt-2 space-y-2">
-                    {menu.subMenus.map((subMenu, index) => (
-                      <Link
-                        key={index}
-                        to={subMenu.path}
-                        className="block text-base font-medium text-gray-600 py-1 hover:text-blue-600"
-                        onClick={() => setMobileMenuOpen(false)}
-                      >
-                        {subMenu.name}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
-          </nav>
+      <div
+        className={`md:hidden fixed top-16 right-0 left-0 h-[calc(100vh-64px)] transform transition-transform duration-300 ease-out ${
+          mobileMenuOpen ? "translate-x-0 pointer-events-auto" : "translate-x-full pointer-events-none"
+        }`}
+      >
+        <div className="h-full overflow-hidden">
+          <div className="h-full overflow-y-auto backdrop-blur-lg shadow-lg shadow-slate-900/10" style={{ backgroundColor: "rgba(255, 255, 255, 0.55)" }}>
+            <nav className="px-3 md:px-4 py-4 h-full">
+              {mainMenus.map((menu) => (
+                <div key={menu.name} className="mb-4">
+                  <Link
+                    to={menu.path}
+                    className={`block text-xl font-bold py-2 ${
+                      location.pathname.startsWith(menu.path) ? "text-blue-600" : "text-gray-700"
+                    }`}
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {menu.name}
+                  </Link>
+                  {menu.subMenus.length > 0 && (
+                    <div className="ml-4 mt-2 space-y-2">
+                      {menu.subMenus.map((subMenu, index) => (
+                        <Link
+                          key={index}
+                          to={subMenu.path}
+                          className="block text-base font-medium text-gray-600 py-1 hover:text-blue-600"
+                          onClick={() => setMobileMenuOpen(false)}
+                        >
+                          {subMenu.name}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </nav>
+          </div>
         </div>
-      )}
+      </div>
 
       {/* Desktop Sub Menu - Hidden on mobile */}
       {activeMainMenu && activeMainMenu.subMenus.length > 0 && (
-        <div className="hidden md:block backdrop-blur-lg" style={{ backgroundColor: "rgba(249, 250, 251, 0.3)" }}>
+        <div className="hidden md:block backdrop-blur-lg shadow-md shadow-slate-900/10" style={{ backgroundColor: "rgba(249, 250, 251, 0.3)" }}>
           <div className="max-w-7xl mx-auto px-2 sm:px-4" style={{ backgroundColor: "rgba(255, 255, 255, 0)" }}>
             <div className="flex gap-4 md:gap-6 lg:gap-8 h-14 md:h-16 items-center justify-center flex-wrap">
               {activeMainMenu.subMenus.map((subMenu, index) => (

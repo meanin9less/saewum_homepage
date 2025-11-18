@@ -27,8 +27,8 @@ export function AnytalkForm({ formData, onChange }: AnytalkFormProps) {
         required
       />
       <FormField
-        label="회사 홈페이지"
-        type="url"
+        label="회사 홈페이지 (선택)"
+        type="text"
         value={formData.companyWebsite}
         onChange={(e) => onChange("companyWebsite", e.target.value)}
       />

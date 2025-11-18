@@ -42,8 +42,12 @@ export default function ContactPage() {
 
   // 필수 필드 검증
   const validateForm = (): string | null => {
+    console.log("🔍 검증 시작 - inquiry:", inquiry, "agreeChecked:", agreeChecked)
+    console.log("📝 formData:", formData)
+
     // 개인정보 동의 확인
     if (!agreeChecked) {
+      console.log("❌ 개인정보 동의 안됨")
       return "개인정보 수집 및 이용에 대한 안내는 반드시 동의하셔야 합니다."
     }
 
@@ -70,6 +74,7 @@ export default function ContactPage() {
       if (!formData.content.trim()) return "문의내용을 입력해주세요."
     }
 
+    console.log("✅ 검증 통과")
     return null
   }
 
