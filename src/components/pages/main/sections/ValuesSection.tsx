@@ -147,9 +147,16 @@ export function ValuesSection() {
 
               {/* 우측: 설명 (50%) */}
               <div className="w-1/2 flex items-center justify-center px-8 lg:px-12">
-                <p className="text-lg lg:text-xl text-black leading-relaxed text-center font-semibold">
-                  {value.description}
-                </p>
+                <div className="space-y-6">
+                  <p className="text-2xl lg:text-3xl xl:text-4xl font-black text-gray-800 text-center leading-tight">
+                    {index === 0 && "소프트웨어는 쉽고 편리해야 한다."}
+                    {index === 1 && "우리가 먼저 즐거워야 한다."}
+                    {index === 2 && "고객과 기술 약속은 지켜져야 한다."}
+                  </p>
+                  <p className="text-lg lg:text-xl text-black leading-relaxed text-center font-semibold">
+                    {value.description}
+                  </p>
+                </div>
               </div>
             </div>
           </div>

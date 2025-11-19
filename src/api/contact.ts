@@ -91,12 +91,10 @@ export const contactApi = {
     homePageSite: string
   }): Promise<LegacyApiResponse> => {
     try {
-      console.log("🚀 요청 시작", formData)
       const response = await axiosInstance.post(
         "https://gw.officeon.com/officeon/everyone/officeon.createReceipt",
         formData
       )
-      console.log("✅ 응답 받음", response.data)
       return response.data
     } catch (error) {
       console.error("❌ 에러 발생", error)

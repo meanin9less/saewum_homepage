@@ -4,7 +4,7 @@ import { newsData } from "../../../data/company/newsData"
 export default function NewsPage() {
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen md:pt-16">
       <PageBanner title="회사소식" description="새움소프트의 최신 뉴스와 소식을 확인하세요" backgroundImage="/img/page_Banner_img/common_background.png" />
 
       <div className="max-w-4xl mx-auto px-3 sm:px-4 py-8 sm:py-16">
@@ -36,12 +36,6 @@ export default function NewsPage() {
               </div>
             </a>
           ))}
-        </div>
-
-        <div className="text-center mt-12">
-          <button className="px-6 py-2 border border-blue-600 text-blue-600 rounded hover:bg-blue-50">
-            더 알아보기 →
-          </button>
         </div>
       </div>
     </div>

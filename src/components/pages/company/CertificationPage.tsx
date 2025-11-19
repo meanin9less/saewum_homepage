@@ -7,7 +7,7 @@ export default function CertificationPage() {
   const [activeTab, setActiveTab] = useState<"인증현황" | "프로그램 등록현황">("인증현황")
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen md:pt-16">
       <PageBanner title="프로그램 및 인증" description="국제 표준을 만족하는 새움소프트의 다양한 인증과 프로그램" backgroundImage="/img/page_Banner_img/common_background.png" />
 
       <div className="max-w-6xl mx-auto px-4 py-8 md:py-16">

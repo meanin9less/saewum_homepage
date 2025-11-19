@@ -39,12 +39,22 @@ export default function OfficeONPage() {
                 구축형 그룹웨어 솔루션
               </p>
             </div>
-            <a
-              href="/contact"
-              className="inline-block px-8 sm:px-10 py-3 sm:py-4 bg-blue-600 text-white rounded-lg font-bold text-base sm:text-lg hover:bg-blue-700 transition-colors duration-200"
-            >
-              자세히 알아보기
-            </a>
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+              <a
+                href="/contact"
+                className="inline-block px-8 sm:px-10 py-3 sm:py-4 bg-blue-600 text-white rounded-lg font-bold text-base sm:text-lg hover:bg-blue-700 transition-colors duration-200"
+              >
+                문의하기
+              </a>
+              <a
+                href="https://officeon.co.kr/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-8 sm:px-10 py-3 sm:py-4 bg-white text-blue-600 border-2 border-blue-600 rounded-lg font-bold text-base sm:text-lg hover:bg-blue-50 transition-colors duration-200"
+              >
+                자세히 알아보기
+              </a>
+            </div>
           </div>
         </div>
 
@@ -166,6 +176,26 @@ export default function OfficeONPage() {
                 <p className="text-xs sm:text-sm md:text-lg text-gray-600">{feature.desc}</p>
               </div>
             ))}
+          </div>
+
+          {/* CTA 카드 */}
+          <div className="bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl p-8 sm:p-12 mx-6 sm:mx-8 md:mx-0 md:rounded-none mb-8 md:mb-0 md:-mx-3 md:-mb-12 flex flex-col justify-center items-center text-center text-white space-y-6 md:py-16">
+            <div className="space-y-3">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-black leading-tight">
+                오피스온과 함께<br />업무 생산성을<br />높이세요
+              </h3>
+              <p className="text-sm sm:text-base md:text-lg leading-relaxed text-blue-100">
+                언제 어디서나 협업을 통한<br />업무 생산성을 높이세요
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto justify-center">
+              <a href="/contact" className="px-6 sm:px-8 py-3 bg-white text-blue-600 rounded-lg font-bold text-sm sm:text-base hover:bg-blue-50 transition-colors duration-200">
+                문의하기
+              </a>
+              <a href="https://officeon.co.kr/" target="_blank" rel="noopener noreferrer" className="px-6 sm:px-8 py-3 bg-blue-500 text-white rounded-lg font-bold text-sm sm:text-base hover:bg-blue-400 transition-colors duration-200 border border-blue-400">
+                자세히 알아보기 →
+              </a>
+            </div>
           </div>
 
           {/* 모바일 전용 - 다른 서비스 링크 */}

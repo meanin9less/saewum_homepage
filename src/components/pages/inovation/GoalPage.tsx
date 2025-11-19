@@ -2,7 +2,7 @@ import { PageBanner } from "../../common/PageBanner"
 
 export default function GoalPage() {
   return (
-    <div>
+    <div className="min-h-screen md:pt-16">
       <PageBanner title="나아가는 방향" description="새움소프트는 늘 경험업은 축적업으로 더 나은 경영업을 위해 노력합니다" backgroundImage="/img/page_Banner_img/common_background_inno.png" />
       <section className="text-center mb-8 sm:mb-12 md:mb-16 mt-8 sm:mt-12 md:mt-16 max-w-6xl mx-auto px-3 sm:px-4">
         <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-blue-700 mb-3 sm:mb-4 md:mb-6">

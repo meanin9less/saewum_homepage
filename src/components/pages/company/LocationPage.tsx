@@ -7,7 +7,7 @@ export default function LocationPage() {
   });
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen md:pt-16">
       <PageBanner title="찾아오시는길" description="새움소프트 본사 위치와 오시는 길을 안내합니다" backgroundImage="/img/page_Banner_img/common_background.png" />
 
       <div className="max-w-6xl mx-auto px-4 py-16">

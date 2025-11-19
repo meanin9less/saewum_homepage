@@ -140,7 +140,7 @@ export default function AnytalkPage() {
         <div className="w-full md:w-1/2 px-6 sm:px-8 md:px-12 py-12 sm:py-16 md:py-20 flex flex-col justify-center">
           <div>
             <div className="mb-4 sm:mb-6 w-48 sm:w-56 md:w-64">
-              <img src="/img/solution/anytalkLogoColor.png" alt="anytalk logo" className="w-full h-auto object-contain" />
+              <img src="/img/solution/anytalkLogo.png" alt="anytalk logo" className="w-full h-auto object-contain" />
             </div>
             <div className="space-y-4 sm:space-y-6 mb-8 sm:mb-12">
               <p className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
@@ -196,10 +196,13 @@ export default function AnytalkPage() {
         {/* 좌측 텍스트 */}
         <div
           ref={textRef}
-          className="w-full md:w-1/2 bg-white px-6 sm:px-8 md:px-12 py-8 sm:py-12 md:py-20 flex flex-col justify-center space-y-4">
-          <p className={`text-base sm:text-xl md:text-3xl font-bold text-gray-800 leading-relaxed ${textVisible ? 'text-visible' : 'opacity-0'}`}>
+          className="w-full md:w-1/2 bg-white px-6 sm:px-8 md:px-12 py-8 sm:py-12 md:py-20 flex flex-col justify-center space-y-8">
+            <div className="flex justify-center">
+              <img src="/img/solution/anytalkLogoColor.png" alt="anytalk logo" className="w-40 sm:w-52 md:w-96 h-auto object-contain" />
+            </div>
+          <p className={`text-base sm:text-xl md:text-3xl font-bold text-gray-800 leading-relaxed text-center ${textVisible ? 'text-visible' : 'opacity-0'}`}>
 대화를 통해 스스로 학습하는 애니톡과 함께 당신의 비즈니스를 더욱 스마트하게 만들어 보세요!<br></br><br></br>
-애니톡은 기업 문서 활용, 음성 대화, 맞춤 정보 제공, 글로벌 소통 등을 지원합니다. 
+애니톡은 기업 문서 활용, 음성 대화, 맞춤 정보 제공, 글로벌 소통 등을 지원합니다.
           </p>
 
         </div>
@@ -304,14 +307,22 @@ export default function AnytalkPage() {
                         <h4 className="text-xl font-extrabold text-gray-900 mb-2">{scenario.headline}</h4>
                         <p className="text-sm text-gray-600 leading-relaxed">{scenario.description}</p>
                       </div>
-                      <ul className="space-y-2">
-                        {scenario.bullets.map((bullet) => (
-                          <li key={bullet} className="flex items-start gap-2">
-                            <span className="mt-1 h-1.5 w-1.5 rounded-full bg-teal-500 flex-shrink-0" />
-                            <span className="text-sm text-gray-700 leading-relaxed">{bullet}</span>
-                          </li>
-                        ))}
-                      </ul>
+                      <div className="flex gap-2 pt-4 mt-4 border-t border-gray-200">
+                        <a
+                          href="/contact"
+                          className="flex-1 px-4 py-2 bg-teal-600 text-white rounded-lg font-bold text-sm hover:bg-teal-700 transition-colors duration-200 text-center"
+                        >
+                          문의하기
+                        </a>
+                        <a
+                          href="https://anytalk.com/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex-1 px-4 py-2 bg-white text-teal-600 border-2 border-teal-600 rounded-lg font-bold text-sm hover:bg-teal-50 transition-colors duration-200 text-center"
+                        >
+                          자세히 보기 →
+                        </a>
+                      </div>
                     </div>
                   </div>
                 )
@@ -343,18 +354,26 @@ export default function AnytalkPage() {
                 })}
               </div>
             </div>
-            <div className="md:w-7/12 bg-white text-gray-900 rounded-3xl p-6 sm:p-8 shadow-xl border border-gray-100">
+            <div className="md:w-7/12 bg-white text-gray-900 rounded-3xl p-6 sm:p-8 shadow-xl border border-gray-100 flex flex-col justify-center items-center text-center">
               <p className="text-xs sm:text-sm uppercase tracking-[0.4em] text-teal-500 mb-2">Insight</p>
               <h4 className="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-4">{activeUseCase.headline}</h4>
               <p className="text-base sm:text-lg text-gray-600 leading-relaxed mb-6">{activeUseCase.description}</p>
-              <ul className="space-y-3">
-                {activeUseCase.bullets.map((bullet) => (
-                  <li key={bullet} className="flex items-start gap-3">
-                    <span className="mt-1 h-2 w-2 rounded-full bg-teal-500 flex-shrink-0" />
-                    <span className="text-sm sm:text-base text-gray-700 leading-relaxed">{bullet}</span>
-                  </li>
-                ))}
-              </ul>
+              <div className="flex gap-3 w-full">
+                <a
+                  href="/contact"
+                  className="flex-1 px-6 py-3 bg-teal-600 text-white rounded-lg font-bold text-sm sm:text-base hover:bg-teal-700 transition-colors duration-200"
+                >
+                  문의하기
+                </a>
+                <a
+                  href="https://anytalk.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 px-6 py-3 bg-white text-teal-600 border-2 border-teal-600 rounded-lg font-bold text-sm sm:text-base hover:bg-teal-50 transition-colors duration-200"
+                >
+                  자세히 알아보기 →
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -440,6 +459,34 @@ export default function AnytalkPage() {
         </div>
       </div>
 
+      {/* CTA 카드 */}
+      <div className="bg-gradient-to-br from-teal-600 to-teal-700 rounded-2xl p-8 sm:p-12 mx-6 sm:mx-8 md:mx-0 md:rounded-none mb-8 md:mb-0 flex flex-col justify-center items-center text-center text-white space-y-6 md:py-16">
+        <div className="space-y-3">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl font-black leading-tight">
+            애니톡과 함께<br />스마트한 AI 챗봇을<br />시작하세요
+          </h3>
+          <p className="text-sm sm:text-base md:text-lg leading-relaxed text-teal-100">
+            기업의 업무 지식을 스마트하게 관리하고<br />모든 직원들이 쉽고 빠르게 소통하세요
+          </p>
+        </div>
+        <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto justify-center">
+          <a
+            href="/contact"
+            className="px-6 sm:px-8 py-3 bg-white text-teal-600 rounded-lg font-bold text-sm sm:text-base hover:bg-teal-50 transition-colors duration-200"
+          >
+            문의하기
+          </a>
+          <a
+            href="https://anytalk.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-6 sm:px-8 py-3 bg-teal-500 text-white rounded-lg font-bold text-sm sm:text-base hover:bg-teal-400 transition-colors duration-200 border border-teal-400"
+          >
+            자세히 알아보기 →
+          </a>
+        </div>
+      </div>
+
       {/* 모바일 전용 - 다른 서비스 링크 */}
       <div className="md:hidden bg-white py-8 sm:py-12 border-t border-gray-200">
         <div className="max-w-6xl mx-auto px-3 sm:px-4">
@@ -462,22 +509,6 @@ export default function AnytalkPage() {
               </div>
             </Link>
           </div>
-        </div>
-      </div>
-
-      <div className="bg-teal-50 py-6 sm:py-8 md:py-12">
-        <div className="max-w-6xl mx-auto px-3 sm:px-4 text-center">
-          <p className="text-sm sm:text-base md:text-lg text-gray-700 mb-4 sm:mb-6">
-            기업의 업무 지식을 스마트하게 관리하고 모든 직원들이 쉽고 빠르게 필요한 정보를 바탕으로 소통할 수 있게 만드는 AI 챗봇입니다.
-          </p>
-          <a
-            href="https://anytalk.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block px-6 sm:px-8 py-2 sm:py-3 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors font-semibold text-sm sm:text-base"
-          >
-            자세히 알아보기 →
-          </a>
         </div>
       </div>
     </div>

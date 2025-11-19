@@ -2,7 +2,7 @@ import { PageBanner } from "../../common/PageBanner"
 
 export default function ContributionPage() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen md:pt-16">
       <PageBanner title="기술의 사회기여" description="기업의 협업과 소통의 혁신에 기여하고자 하는 의지와 포상을 가지고 임하고 있습니다." backgroundImage="/img/page_Banner_img/common_background_inno.png" />
 
       <div className="max-w-6xl mx-auto px-3 sm:px-4 py-8 sm:py-12 md:py-16">

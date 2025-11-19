@@ -15,7 +15,7 @@ export default function HistoryPage() {
   const currentData = tabs.find((t) => t.id === activeTab)?.data || history1
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen md:pt-16">
       <PageBanner
         title="연혁"
         description="새움소프트의 발자취를 통해 20년의 역사를 살펴보세요"

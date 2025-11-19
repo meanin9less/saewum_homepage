@@ -2,7 +2,7 @@ import { PageBanner } from "../../common/PageBanner"
 
 export default function CompanyPage() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen md:pt-16">
       <PageBanner title="회사소개" description="변화하신을 바탕으로 한 새움소프트의 기술력은 세계를 향해 나아갑니다" backgroundImage="/img/page_Banner_img/common_background.png" />
 
       <div className="max-w-6xl mx-auto px-4 py-16">
